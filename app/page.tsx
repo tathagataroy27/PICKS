@@ -3,96 +3,112 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PICKS | Burgers, Korean Fusion & More in Montreal",
+  title: "PICKS | Burgers & Korean Fusion in Montreal",
   description:
-    "Fresh, customizable burgers, Korean fusion street food, Kogos, K-Tacos, chicken, fries and more at PICKS in Montreal. Build your burger your way.",
+    "PICKS Montreal — fresh burgers made your way, Korean fusion favourites, crispy sides and more. Build your burger with fresh ingredients, free veggies and sauces.",
   keywords: [
     "PICKS Montreal",
+    "PICKS burgers Montreal",
     "burger Montreal",
-    "custom burgers Montreal",
+    "custom burger Montreal",
     "build your own burger Montreal",
     "Korean fusion Montreal",
     "Korean burger Montreal",
     "Kogo Montreal",
-    "K-Taco Montreal",
-    "fries Montreal",
   ],
-  openGraph: {
-    title: "PICKS | Fresh. Custom. Delicious.",
-    description:
-      "Build your burger your way. Discover Korean fusion street food and more at PICKS Montreal.",
-    type: "website",
-  },
 };
 
-const koreanItems = [
+const fusionItems = [
   {
     title: "Kogos",
-    price: "$6.49",
     description: "Korean-inspired street food with a PICKS twist.",
     image: "/Kogo.jpeg",
   },
   {
     title: "K-Taco",
-    price: "$7.99–$8.99",
-    description: "Korean fusion tacos with your choice of filling.",
+    description: "Korean-inspired tacos packed with flavour.",
     image: "/Taco.jpeg",
   },
   {
     title: "Kimchi Burger",
-    price: "PICKS style",
-    description: "A bold burger with Korean-inspired flavour.",
+    description: "Our burger with a bold Korean-inspired kick.",
     image: "/Kimchi Burger.PNG",
   },
 ];
 
-const burgers = [
+const burgerChoices = [
   {
     title: "PICKS Burger",
-    price: "$7.99",
     image: "/Picks Chicken Burger.jpg",
   },
   {
-    title: "PICKS Double",
-    price: "$10.59",
+    title: "Double Burger",
     image: "/Double Burger.png",
   },
   {
-    title: "Steakburger",
-    price: "$9.99",
+    title: "Steak Burger",
     image: "/steak burger.jpg",
   },
 ];
 
-const menuItems = [
+const freeVeggies = [
+  "Lettuce",
+  "Tomato",
+  "Pickles",
+  "Onions",
+  "Coleslaw",
+  "Relish",
+];
+
+const freeSauces = [
+  "Ketchup",
+  "Mustard",
+  "Mayo",
+  "Wasabi Mayo",
+  "Chipotle Mayo",
+  "Honey Mustard",
+  "Spicy Ketchup",
+  "Aioli",
+];
+
+const paidToppings = [
+  "Cheese",
+  "Bacon",
+  "Egg",
+  "Steak",
+  "Kimchi",
+  "Sautéed Mushrooms",
+];
+
+const menuCategories = [
   {
     title: "Burgers",
-    text: "Freshly made your way.",
+    description: "Fresh burgers. Built your way.",
     image: "/Picks Chicken Burger.jpg",
   },
   {
     title: "Korean Fusion",
-    text: "Bold flavours. PICKS style.",
+    description: "Bold Korean-inspired flavours.",
     image: "/Kimchi Burger.PNG",
   },
   {
     title: "Kogos",
-    text: "A little different. Very tasty.",
+    description: "Street food with a PICKS twist.",
     image: "/Kogo.jpeg",
   },
   {
     title: "K-Tacos",
-    text: "Korean-inspired street food.",
+    description: "Korean-inspired tacos.",
     image: "/Taco.jpeg",
   },
   {
     title: "Sides",
-    text: "Fries, poutine & more.",
+    description: "Fries, poutine & more.",
     image: "/Fries.png",
   },
   {
     title: "Chicken",
-    text: "Crispy, saucy and satisfying.",
+    description: "Crispy, golden & satisfying.",
     image: "/Chicken Nuggets 2.jpg",
   },
 ];
@@ -100,22 +116,47 @@ const menuItems = [
 export default function Home() {
   return (
     <main>
-      {/* =========================
-          HERO
-      ========================== */}
+      {/* HEADER */}
+      <header className="site-header">
+        <div className="header-inner">
+          <Link href="/" className="brand" aria-label="PICKS home">
+            <Image
+              src="/logo.png"
+              alt="PICKS"
+              width={110}
+              height={70}
+              priority
+            />
+          </Link>
+
+          <nav className="desktop-nav">
+            <Link href="#korean-fusion">Korean Fusion</Link>
+            <Link href="#build">Build Your Burger</Link>
+            <Link href="/menu">Menu</Link>
+            <Link href="#visit">Visit</Link>
+          </nav>
+
+          <Link href="/menu" className="header-button">
+            SEE MENU <span>→</span>
+          </Link>
+        </div>
+      </header>
+
+      {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">FRESH. CUSTOM. DELICIOUS.</p>
 
             <h1>
-              BUILD YOUR
-              <span>PERFECT BURGER.</span>
+              YOUR BURGER.
+              <span>YOUR WAY.</span>
             </h1>
 
             <p className="hero-description">
-              Fresh ingredients, bold flavours and plenty of ways to make it
-              yours. Build your burger exactly the way you like it.
+              Start with a great burger. Pick your toppings, load it with
+              fresh veggies, choose your favourite sauce and make it yours.
+              <strong>Good ingredients. Big flavour. Zero boring.</strong>
             </p>
 
             <div className="hero-buttons">
@@ -123,15 +164,17 @@ export default function Home() {
                 BUILD YOUR BURGER <span>→</span>
               </Link>
 
-              <Link href="#menu" className="button button-outline">
+              <Link href="/menu" className="button button-outline">
                 VIEW MENU
               </Link>
             </div>
 
-            <div className="hero-points">
-              <span>✓ Fresh ingredients</span>
-              <span>✓ Free veggies</span>
-              <span>✓ Free sauces</span>
+            <div className="hero-highlight">
+              <span>✦</span>
+              <p>
+                Fresh ingredients,
+                <strong>made your way.</strong>
+              </p>
             </div>
           </div>
 
@@ -141,33 +184,31 @@ export default function Home() {
             <div className="hero-image-wrap">
               <Image
                 src="/Burger.JPG"
-                alt="Freshly made PICKS burger with fries"
+                alt="Fresh PICKS burger"
                 fill
                 priority
-                sizes="(max-width: 900px) 100vw, 55vw"
+                sizes="(max-width: 800px) 90vw, 55vw"
                 className="hero-image"
               />
             </div>
 
             <div className="hero-sticker">
-              <span>FRESH</span>
-              <strong>MADE</strong>
-              <span>FOR YOU</span>
+              <span>YOU</span>
+              <strong>PICK</strong>
+              <span>IT.</span>
             </div>
 
-            <div className="hero-doodle">GOOD FOOD.</div>
+            <div className="hero-doodle">MAKE IT YOURS!</div>
           </div>
         </div>
       </section>
 
-      {/* =========================
-          KOREAN FUSION
-      ========================== */}
+      {/* KOREAN FUSION */}
       <section className="fusion-section" id="korean-fusion">
         <div className="section-container">
           <div className="fusion-heading">
             <div>
-              <p className="eyebrow orange">A LITTLE DIFFERENT.</p>
+              <p className="eyebrow orange">OUR SIGNATURE TWIST</p>
 
               <h2>
                 KOREAN
@@ -176,13 +217,15 @@ export default function Home() {
             </div>
 
             <p className="fusion-intro">
-              Korean-inspired flavours meet our PICKS-style street food.
-              <strong> Bold, fun and seriously tasty.</strong>
+              Korean-inspired flavours meet the PICKS way of doing things.
+              <strong>
+                Bold flavours. Fun combinations. Worth coming back for.
+              </strong>
             </p>
           </div>
 
           <div className="fusion-grid">
-            {koreanItems.map((item) => (
+            {fusionItems.map((item) => (
               <article className="fusion-card" key={item.title}>
                 <div className="fusion-image">
                   <Image
@@ -194,11 +237,7 @@ export default function Home() {
                 </div>
 
                 <div className="fusion-card-content">
-                  <div className="card-title-row">
-                    <h3>{item.title}</h3>
-                    <span>{item.price}</span>
-                  </div>
-
+                  <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
               </article>
@@ -207,22 +246,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
-          BUILD YOUR BURGER
-      ========================== */}
+      {/* BUILD YOUR BURGER */}
       <section className="build-section" id="build">
         <div className="section-container">
           <div className="build-heading">
-            <p className="eyebrow">YOUR BURGER. YOUR RULES.</p>
+            <p className="eyebrow">THE PICKS WAY</p>
 
             <h2>
-              YOU PICK.
-              <span>YOU BUILD.</span>
+              BUILD IT.
+              <span>LOVE IT.</span>
             </h2>
 
             <p>
-              Start with your burger. Add your favourite free veggies and
-              sauces. Then make it extra if you feel like it.
+              No complicated rules. Pick your burger, choose your favourites
+              and make something that's completely yours.
             </p>
           </div>
 
@@ -231,25 +268,23 @@ export default function Home() {
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
 
-              <div>
-                <p className="step-label">START WITH</p>
-                <h3>YOUR BURGER</h3>
-              </div>
+              <p className="step-label">START WITH</p>
+
+              <h3>YOUR BURGER</h3>
 
               <div className="mini-burgers">
-                {burgers.map((burger) => (
+                {burgerChoices.map((burger) => (
                   <div className="mini-burger" key={burger.title}>
                     <div className="mini-burger-image">
                       <Image
                         src={burger.image}
                         alt={burger.title}
                         fill
-                        sizes="150px"
+                        sizes="120px"
                       />
                     </div>
 
                     <strong>{burger.title}</strong>
-                    <span>{burger.price}</span>
                   </div>
                 ))}
               </div>
@@ -259,97 +294,97 @@ export default function Home() {
             <div className="build-step">
               <div className="step-number orange-number">02</div>
 
-              <div>
-                <p className="step-label">THEN ADD</p>
-                <h3>FREE VEGGIES</h3>
-              </div>
+              <p className="step-label">THEN ADD</p>
+
+              <h3>FREE VEGGIES</h3>
 
               <p className="step-description">
-                Load it up. Your favourite fresh veggies are included.
+                Load it up with the fresh stuff you love.
               </p>
 
               <div className="ingredient-pills">
-                <span>🥬 Lettuce</span>
-                <span>🍅 Tomato</span>
-                <span>🥒 Pickles</span>
-                <span>🧅 Onions</span>
-                <span>Coleslaw</span>
-                <span>Relish</span>
+                {freeVeggies.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
               </div>
 
-              <span className="free-badge">FREE</span>
+              <span className="free-badge">INCLUDED</span>
             </div>
 
             {/* STEP 3 */}
             <div className="build-step">
               <div className="step-number orange-number">03</div>
 
-              <div>
-                <p className="step-label">FINISH WITH</p>
-                <h3>YOUR SAUCE</h3>
-              </div>
+              <p className="step-label">FINISH WITH</p>
+
+              <h3>YOUR SAUCE</h3>
 
               <p className="step-description">
-                Pick your favourite sauce. Go classic or try something
-                different.
+                Creamy, spicy, classic — pick your favourite.
               </p>
 
               <div className="ingredient-pills sauce-pills">
-                <span>Ketchup</span>
-                <span>Mustard</span>
-                <span>Mayonnaise</span>
-                <span>Wasabi Mayo</span>
-                <span>Chipotle Mayo</span>
-                <span>Honey Mustard</span>
-                <span>Spicy Ketchup</span>
-                <span>Aioli</span>
+                {freeSauces.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
               </div>
 
-              <span className="free-badge">FREE</span>
+              <span className="free-badge">INCLUDED</span>
             </div>
           </div>
 
-          {/* EXTRAS — deliberately understated */}
-          <div className="extras">
-            <div>
-              <p className="extras-kicker">FEELING EXTRA?</p>
-              <h3>Add a little more to your burger.</h3>
+          {/* PAID TOPPINGS */}
+          <details className="extras-details">
+            <summary>
+              <span>
+                <small>WANT TO GO ALL IN?</small>
+                <strong>See all topping options</strong>
+              </span>
+
+              <b>+</b>
+            </summary>
+
+            <div className="extras-panel">
               <p>
-                Egg, bacon, steak, kimchi, cheese, sautéed mushrooms and more.
+                Add something extra when you feel like taking your burger to
+                the next level.
               </p>
-            </div>
 
-            <Link href="#menu" className="text-link">
-              SEE ALL OPTIONS →
-            </Link>
-          </div>
+              <div className="paid-pills">
+                {paidToppings.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+
+              <Link href="/menu#build-options" className="text-link">
+                SEE ALL OPTIONS →
+              </Link>
+            </div>
+          </details>
         </div>
       </section>
 
-      {/* =========================
-          COMBO
-      ========================== */}
-      <section className="combo-section">
+      {/* COMBO */}
+      <section className="combo-section" id="combos">
         <div className="combo-container">
           <div className="combo-copy">
-            <p className="eyebrow orange">HUNGRY HUNGRY?</p>
+            <p className="eyebrow orange">FEEL LIKE MAKING IT A MEAL?</p>
 
             <h2>
-              MAKE IT
-              <span>A MEAL.</span>
+              ADD FRIES.
+              <span>ADD A DRINK.</span>
             </h2>
 
             <p>
-              Add fries + a drink to your burger and turn your PICK into a
-              proper meal.
+              Got your burger? Make it a combo and keep the good stuff coming.
             </p>
 
             <div className="combo-price">
-              <span>ONLY</span>
               <strong>+$4.99</strong>
+              <span>FRIES + DRINK</span>
             </div>
 
-            <Link href="#menu" className="button button-yellow">
+            <Link href="/menu#combos" className="button button-yellow">
               MAKE IT A COMBO <span>→</span>
             </Link>
           </div>
@@ -360,9 +395,9 @@ export default function Home() {
             <div className="combo-food burger-food">
               <Image
                 src="/Picks Chicken Burger.jpg"
-                alt="PICKS burger"
+                alt="PICKS burger combo"
                 fill
-                sizes="250px"
+                sizes="260px"
               />
             </div>
 
@@ -391,14 +426,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
-          MENU
-      ========================== */}
-      <section className="menu-section" id="menu">
+      {/* MENU PREVIEW */}
+      <section className="menu-section">
         <div className="section-container">
           <div className="menu-heading">
             <div>
               <p className="eyebrow">COME HUNGRY.</p>
+
               <h2>
                 MORE THAN
                 <span>BURGERS.</span>
@@ -406,13 +440,13 @@ export default function Home() {
             </div>
 
             <p>
-              Burgers, Korean fusion, crispy chicken, loaded sides and more.
-              There is always something good to pick.
+              Burgers, Korean fusion, crispy chicken, fries, poutine and more.
+              Something for every kind of craving.
             </p>
           </div>
 
           <div className="menu-grid">
-            {menuItems.map((item) => (
+            {menuCategories.map((item) => (
               <article className="menu-card" key={item.title}>
                 <div className="menu-card-image">
                   <Image
@@ -425,7 +459,7 @@ export default function Home() {
 
                 <div className="menu-card-content">
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <p>{item.description}</p>
                 </div>
               </article>
             ))}
@@ -439,17 +473,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
-          VISIT US
-      ========================== */}
+      {/* VISIT */}
       <section className="visit-section" id="visit">
         <div className="visit-container">
           <div className="visit-brand">
             <Image
               src="/logo.png"
-              alt="PICKS Montreal logo"
-              width={130}
-              height={130}
+              alt="PICKS Montreal"
+              width={120}
+              height={120}
               className="footer-logo"
             />
 
@@ -464,31 +496,34 @@ export default function Home() {
           <div className="visit-info">
             <div className="info-item">
               <span className="info-icon">📍</span>
+
               <div>
                 <small>FIND US</small>
-                <strong>Montreal, Quebec</strong>
+                <strong>YOUR PICKS ADDRESS HERE</strong>
               </div>
             </div>
 
             <div className="info-item">
               <span className="info-icon">🕐</span>
+
               <div>
-                <small>COME BY</small>
-                <strong>Open daily</strong>
+                <small>OPENING HOURS</small>
+                <strong>YOUR HOURS HERE</strong>
               </div>
             </div>
 
             <div className="info-item">
               <span className="info-icon">📞</span>
+
               <div>
-                <small>CALL FOR PICK-UP</small>
+                <small>CALL US</small>
                 <strong>514.937.1937</strong>
               </div>
             </div>
 
             <div className="visit-buttons">
-              <Link href="#menu" className="button button-yellow">
-                ORDER NOW <span>→</span>
+              <Link href="/menu" className="button button-yellow">
+                VIEW MENU <span>→</span>
               </Link>
 
               <a
