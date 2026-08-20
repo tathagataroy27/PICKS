@@ -37,18 +37,9 @@ const fusionItems = [
 ];
 
 const burgerChoices = [
-  {
-    title: "PICKS Burger",
-    image: "/Picks Chicken Burger.jpg",
-  },
-  {
-    title: "Double Burger",
-    image: "/Double Burger.png",
-  },
-  {
-    title: "Steak Burger",
-    image: "/steak burger.jpg",
-  },
+  { title: "PICKS Burger", image: "/Picks Chicken Burger.jpg" },
+  { title: "Double Burger", image: "/Double Burger.png" },
+  { title: "Steak Burger", image: "/steak burger.jpg" },
 ];
 
 const freeVeggies = [
@@ -91,60 +82,30 @@ const paidToppings = [
   { name: "Brie", price: "$1.29" },
 ];
 
+const cheeseNames = [
+  "Cheddar",
+  "Mozzarella",
+  "Provolone",
+  "Swiss",
+  "Smoked Gouda",
+  "Brie",
+];
+
 const menuCategories = [
-  {
-    title: "Burgers",
-    description: "Fresh burgers. Built your way.",
-    image: "/Picks Chicken Burger.jpg",
-  },
-  {
-    title: "Korean Fusion",
-    description: "Bold Korean-inspired flavours.",
-    image: "/Kimchi Burger.PNG",
-  },
-  {
-    title: "Kogos",
-    description: "Street food with a PICKS twist.",
-    image: "/Kogo.jpeg",
-  },
-  {
-    title: "K-Tacos",
-    description: "Korean-inspired tacos.",
-    image: "/Taco.jpeg",
-  },
-  {
-    title: "Sides",
-    description: "Fries, poutine & more.",
-    image: "/Fries.png",
-  },
-  {
-    title: "Chicken",
-    description: "Crispy, golden & satisfying.",
-    image: "/Chicken Nuggets 2.jpg",
-  },
+  { title: "Burgers", description: "Fresh burgers. Built your way.", image: "/Picks Chicken Burger.jpg" },
+  { title: "Korean Fusion", description: "Bold Korean-inspired flavours.", image: "/Kimchi Burger.PNG" },
+  { title: "Kogos", description: "Street food with a PICKS twist.", image: "/Kogo.jpeg" },
+  { title: "K-Tacos", description: "Korean-inspired tacos.", image: "/Taco.jpeg" },
+  { title: "Sides", description: "Fries, poutine & more.", image: "/Fries.png" },
+  { title: "Chicken", description: "Crispy, golden & satisfying.", image: "/Chicken Nuggets 2.jpg" },
 ];
 
 const deliveryPlatforms = [
-  {
-    name: "Uber Eats",
-    href: "https://www.ubereats.com/ca",
-  },
-  {
-    name: "DoorDash",
-    href: "https://www.doordash.com/en-CA/food-delivery/",
-  },
-  {
-    name: "Skip",
-    href: "https://www.skipthedishes.com/",
-  },
-  {
-    name: "Fantuan",
-    href: "https://order.fantuan.ca/delivery/city/montreal/ca",
-  },
-  {
-    name: "HungryPanda",
-    href: "https://www.hungrypanda.co/",
-  },
+  { name: "Uber Eats", href: "https://www.ubereats.com/ca" },
+  { name: "DoorDash", href: "https://www.doordash.com/en-CA/food-delivery/" },
+  { name: "Skip", href: "https://www.skipthedishes.com/" },
+  { name: "Fantuan", href: "https://order.fantuan.ca/delivery/city/montreal/ca" },
+  { name: "HungryPanda", href: "https://www.hungrypanda.co/" },
 ];
 
 const hours = [
@@ -158,19 +119,21 @@ const hours = [
 ];
 
 export default function Home() {
+  const premiumToppings = paidToppings.filter(
+    (item) => !cheeseNames.includes(item.name)
+  );
+
+  const cheeseToppings = paidToppings.filter((item) =>
+    cheeseNames.includes(item.name)
+  );
+
   return (
     <main>
       {/* HEADER */}
       <header className="site-header">
         <div className="header-inner">
           <Link href="/" className="brand" aria-label="PICKS home">
-            <Image
-              src="/logo.png"
-              alt="PICKS"
-              width={110}
-              height={70}
-              priority
-            />
+            <Image src="/logo.png" alt="PICKS" width={110} height={70} priority />
           </Link>
 
           <nav className="desktop-nav">
@@ -256,7 +219,6 @@ export default function Home() {
           <div className="fusion-heading">
             <div>
               <p className="eyebrow orange">OUR SIGNATURE TWIST</p>
-
               <h2>
                 KOREAN
                 <span>FUSION.</span>
@@ -314,9 +276,7 @@ export default function Home() {
             {/* STEP 1 */}
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
-
               <p className="step-label">START WITH</p>
-
               <h3>YOUR BURGER</h3>
 
               <div className="mini-burgers">
@@ -330,7 +290,6 @@ export default function Home() {
                         sizes="120px"
                       />
                     </div>
-
                     <strong>{burger.title}</strong>
                   </div>
                 ))}
@@ -340,9 +299,7 @@ export default function Home() {
             {/* STEP 2 */}
             <div className="build-step">
               <div className="step-number orange-number">02</div>
-
               <p className="step-label">THEN ADD</p>
-
               <h3>FREE VEGGIES</h3>
 
               <p className="step-description">
@@ -361,9 +318,7 @@ export default function Home() {
             {/* STEP 3 */}
             <div className="build-step">
               <div className="step-number orange-number">03</div>
-
               <p className="step-label">FINISH WITH</p>
-
               <h3>YOUR SAUCE</h3>
 
               <p className="step-description">
@@ -397,13 +352,32 @@ export default function Home() {
                 somewhere different.
               </p>
 
-              <div className="paid-pills">
-                {paidToppings.map((item) => (
-                  <span key={item.name}>
-                    {item.name}
-                    <small>{item.price}</small>
-                  </span>
-                ))}
+              {/* PREMIUM ADD-ONS */}
+              <div className="topping-group">
+                <h4>PREMIUM ADD-ONS</h4>
+
+                <div className="paid-pills">
+                  {premiumToppings.map((item) => (
+                    <span key={item.name}>
+                      <b>{item.name}</b>
+                      <em>{item.price}</em>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CHEESE */}
+              <div className="topping-group cheese-group">
+                <h4>CHEESE</h4>
+
+                <div className="paid-pills">
+                  {cheeseToppings.map((item) => (
+                    <span key={item.name}>
+                      <b>{item.name}</b>
+                      <em>{item.price}</em>
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <Link href="/menu#build-options" className="text-link">
@@ -453,21 +427,11 @@ export default function Home() {
             </div>
 
             <div className="combo-food fries-food">
-              <Image
-                src="/Fries.png"
-                alt="PICKS fries"
-                fill
-                sizes="220px"
-              />
+              <Image src="/Fries.png" alt="PICKS fries" fill sizes="220px" />
             </div>
 
             <div className="combo-food drink-food">
-              <Image
-                src="/Pop.png"
-                alt="Soft drink"
-                fill
-                sizes="120px"
-              />
+              <Image src="/Pop.png" alt="Soft drink" fill sizes="120px" />
             </div>
 
             <span className="combo-word combo-word-one">BURGER.</span>
@@ -617,10 +581,7 @@ export default function Home() {
 
             {/* BUTTONS */}
             <div className="visit-buttons">
-              <a
-                href="tel:+15149371937"
-                className="button button-yellow"
-              >
+              <a href="tel:+15149371937" className="button button-yellow">
                 CALL FOR PICK-UP <span>→</span>
               </a>
 
