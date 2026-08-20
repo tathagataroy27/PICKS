@@ -32,7 +32,7 @@ const burgers = [
 const korean = [
   {
     name: "Kogo",
-    description: "Korean-inspired street food.",
+    description: "Korean-inspired street food with a PICKS twist.",
     image: "/Kogo.jpeg",
   },
   {
@@ -42,7 +42,7 @@ const korean = [
   },
   {
     name: "K-Taco",
-    description: "Korean-inspired tacos.",
+    description: "Korean-inspired tacos packed with flavour.",
     image: "/Taco.jpeg",
   },
 ];
@@ -89,15 +89,6 @@ const chicken = [
   },
 ];
 
-const paidToppings = [
-  "Cheese",
-  "Bacon",
-  "Egg",
-  "Steak",
-  "Kimchi",
-  "Sautéed Mushrooms",
-];
-
 const freeVeggies = [
   "Lettuce",
   "Tomato",
@@ -110,12 +101,130 @@ const freeVeggies = [
 const freeSauces = [
   "Ketchup",
   "Mustard",
-  "Mayo",
+  "Mayonnaise",
   "Wasabi Mayo",
   "Chipotle Mayo",
   "Honey Mustard",
   "Spicy Ketchup",
-  "Aioli",
+  "Garlic Mayo",
+  "Grilled Red Pepper",
+  "Dried Tomato, Basil & Aioli",
+];
+
+const paidToppings = [
+  {
+    name: "Egg",
+    price: "$1.49",
+    category: "Toppings",
+  },
+  {
+    name: "Steak",
+    price: "$4.49",
+    category: "Toppings",
+  },
+  {
+    name: "Bacon",
+    price: "$1.49",
+    category: "Toppings",
+  },
+  {
+    name: "Olives",
+    price: "$0.49",
+    category: "Toppings",
+  },
+  {
+    name: "Kimchi",
+    price: "$1.29",
+    category: "Toppings",
+  },
+  {
+    name: "Sautéed Mushrooms",
+    price: "$0.99",
+    category: "Toppings",
+  },
+  {
+    name: "Caramelised Onions",
+    price: "$0.99",
+    category: "Toppings",
+  },
+  {
+    name: "Deep Fried Onions",
+    price: "$1.29",
+    category: "Toppings",
+  },
+  {
+    name: "Grilled Red Peppers",
+    price: "$1.29",
+    category: "Toppings",
+  },
+];
+
+const cheeses = [
+  {
+    name: "Cheddar",
+    price: "$0.99",
+    category: "Cheese",
+  },
+  {
+    name: "Mozzarella",
+    price: "$0.99",
+    category: "Cheese",
+  },
+  {
+    name: "Provolone",
+    price: "$0.99",
+    category: "Cheese",
+  },
+  {
+    name: "Swiss",
+    price: "$1.29",
+    category: "Cheese",
+  },
+  {
+    name: "Smoked Gouda",
+    price: "$1.29",
+    category: "Cheese",
+  },
+  {
+    name: "Brie",
+    price: "$1.29",
+    category: "Cheese",
+  },
+];
+
+const allExtras = [...paidToppings, ...cheeses];
+
+const hours = [
+  ["Monday", "11:30 a.m. – 9:30 p.m."],
+  ["Tuesday", "11:30 a.m. – 9:30 p.m."],
+  ["Wednesday", "11:30 a.m. – 7:00 p.m."],
+  ["Thursday", "11:30 a.m. – 9:30 p.m."],
+  ["Friday", "11:30 a.m. – 11:00 p.m."],
+  ["Saturday", "2:00 p.m. – 11:00 p.m."],
+  ["Sunday", "3:00 p.m. – 10:00 p.m."],
+];
+
+const deliveryPlatforms = [
+  {
+    name: "Uber Eats",
+    href: "https://www.ubereats.com/ca",
+  },
+  {
+    name: "DoorDash",
+    href: "https://www.doordash.com/en-CA/food-delivery/",
+  },
+  {
+    name: "Skip",
+    href: "https://www.skipthedishes.com/",
+  },
+  {
+    name: "Fantuan",
+    href: "https://order.fantuan.ca/delivery/city/montreal/ca",
+  },
+  {
+    name: "HungryPanda",
+    href: "https://www.hungrypanda.co/",
+  },
 ];
 
 function MenuCard({
@@ -153,12 +262,34 @@ function MenuCard({
   );
 }
 
+function ExtraGrid({
+  items,
+}: {
+  items: {
+    name: string;
+    price: string;
+    category: string;
+  }[];
+}) {
+  return (
+    <div className="extra-grid">
+      {items.map((item) => (
+        <div className="extra-item" key={item.name}>
+          <span>{item.name}</span>
+          <strong>{item.price}</strong>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function MenuPage() {
   return (
     <main className="full-menu-page">
+      {/* HEADER */}
       <header className="site-header">
         <div className="header-inner">
-          <Link href="/" className="brand">
+          <Link href="/" className="brand" aria-label="PICKS home">
             <Image
               src="/logo.png"
               alt="PICKS"
@@ -172,15 +303,16 @@ export default function MenuPage() {
             <Link href="/#korean-fusion">Korean Fusion</Link>
             <Link href="/#build">Build Your Burger</Link>
             <Link href="/menu">Menu</Link>
-            <Link href="/#visit">Visit</Link>
+            <Link href="/#visit">Visit Us</Link>
           </nav>
 
-          <Link href="/" className="header-button">
-            HOME <span>→</span>
-          </Link>
+          <a href="tel:+15149371937" className="header-button">
+            CALL TO ORDER <span>→</span>
+          </a>
         </div>
       </header>
 
+      {/* MENU HERO */}
       <section className="menu-hero">
         <div className="section-container">
           <p className="eyebrow orange">COME HUNGRY.</p>
@@ -194,6 +326,16 @@ export default function MenuPage() {
             Burgers your way. Korean-inspired favourites. Crispy sides.
             Plenty to pick from.
           </p>
+
+          <div className="menu-hero-actions">
+            <a href="tel:+15149371937" className="button button-primary">
+              CALL FOR PICK-UP <span>→</span>
+            </a>
+
+            <Link href="/#korean-fusion" className="button button-outline">
+              KOREAN FUSION
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -202,10 +344,16 @@ export default function MenuPage() {
         <div className="section-container">
           <div className="full-menu-title">
             <p className="eyebrow">THE MAIN EVENT</p>
+
             <h2>
               BURGERS
               <span>YOUR WAY.</span>
             </h2>
+
+            <p className="section-intro">
+              Start with your favourite burger. Then make it yours with free
+              veggies, free sauces and your choice of extras.
+            </p>
           </div>
 
           <div className="full-menu-grid">
@@ -233,46 +381,107 @@ export default function MenuPage() {
           </div>
 
           <div className="option-columns">
+            {/* FREE VEGGIES */}
             <div className="option-box">
               <span className="option-label">INCLUDED</span>
 
               <h3>FREE VEGGIES</h3>
 
+              <p className="option-description">
+                Add as much as you like.
+              </p>
+
               <div className="option-list">
                 {freeVeggies.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span key={item}>
+                    <b>✓</b>
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
 
+            {/* FREE SAUCES */}
             <div className="option-box">
               <span className="option-label">INCLUDED</span>
 
               <h3>FREE SAUCES</h3>
 
+              <p className="option-description">
+                Pick your favourite.
+              </p>
+
               <div className="option-list">
                 {freeSauces.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span key={item}>
+                    <b>✓</b>
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
 
+            {/* EXTRAS */}
             <div className="option-box option-box-yellow">
-              <span className="option-label">ADD EXTRA</span>
+              <span className="option-label">YOUR CHOICE</span>
 
-              <h3>TOPPINGS</h3>
+              <h3>EXTRAS</h3>
+
+              <p className="option-description">
+                Add the flavours you love.
+              </p>
 
               <div className="option-list">
-                {paidToppings.map((item) => (
-                  <span key={item}>{item}</span>
+                {allExtras.map((item) => (
+                  <span key={item.name}>
+                    {item.name}
+                    <strong>{item.price}</strong>
+                  </span>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* FULL EXTRA LIST */}
+          <div className="extras-menu-block">
+            <div className="extras-menu-heading">
+              <div>
+                <p className="eyebrow">MORE WAYS TO PICK</p>
+
+                <h3>
+                  TOPPINGS
+                  <span>& CHEESE.</span>
+                </h3>
+              </div>
+
+              <p>
+                Build your burger exactly the way you want it. Choose from
+                savoury toppings, crispy additions and different cheeses.
+              </p>
+            </div>
+
+            <div className="extra-category">
+              <div className="extra-category-heading">
+                <h4>TOPPINGS</h4>
+                <span>YOUR BURGER, YOUR PICK.</span>
+              </div>
+
+              <ExtraGrid items={paidToppings} />
+            </div>
+
+            <div className="extra-category">
+              <div className="extra-category-heading">
+                <h4>CHEESE</h4>
+                <span>MAKE IT MELTY.</span>
+              </div>
+
+              <ExtraGrid items={cheeses} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* KOREAN */}
+      {/* KOREAN FUSION */}
       <section className="full-menu-section korean-menu-section">
         <div className="section-container">
           <div className="full-menu-title">
@@ -282,6 +491,10 @@ export default function MenuPage() {
               KOREAN
               <span>FUSION.</span>
             </h2>
+
+            <p className="section-intro">
+              Korean-inspired flavours meet the PICKS way of doing things.
+            </p>
           </div>
 
           <div className="full-menu-grid">
@@ -294,25 +507,46 @@ export default function MenuPage() {
 
       {/* COMBO */}
       <section className="menu-combo-banner" id="combos">
-        <div>
-          <p className="eyebrow orange">HUNGRY?</p>
+        <div className="combo-banner-copy">
+          <p className="eyebrow orange">MAKE IT A MEAL</p>
 
           <h2>
-            MAKE IT
-            <span>A COMBO.</span>
+            BURGER.
+            <span>FRIES. DRINK.</span>
           </h2>
 
           <p>
-            Add fries + a drink to your burger for just <strong>+$4.99</strong>
+            Add fries + a drink to your burger for just{" "}
+            <strong>+$4.99</strong>.
           </p>
+
+          <a href="tel:+15149371937" className="button button-yellow">
+            CALL TO ORDER <span>→</span>
+          </a>
         </div>
 
-        <Image
-          src="/Burger.JPG"
-          alt="PICKS burger combo"
-          width={350}
-          height={300}
-        />
+        <div className="combo-banner-images">
+          <Image
+            src="/Picks Chicken Burger.jpg"
+            alt="PICKS burger"
+            width={240}
+            height={210}
+          />
+
+          <Image
+            src="/Fries.png"
+            alt="PICKS fries"
+            width={220}
+            height={190}
+          />
+
+          <Image
+            src="/Pop.png"
+            alt="PICKS drink"
+            width={100}
+            height={100}
+          />
+        </div>
       </section>
 
       {/* SIDES */}
@@ -355,6 +589,163 @@ export default function MenuPage() {
         </div>
       </section>
 
+      {/* VISIT / ORDER */}
+      <section className="menu-visit-section">
+        <div className="section-container">
+          <div className="menu-visit-grid">
+            <div>
+              <Image
+                src="/logo.png"
+                alt="PICKS"
+                width={120}
+                height={120}
+              />
+
+              <p className="eyebrow orange">COME SEE US</p>
+
+              <h2>
+                YOUR PICKS.
+                <span>YOUR WAY.</span>
+              </h2>
+
+              <p>
+                Dine in, pick up or get PICKS delivered to you.
+              </p>
+
+              <a
+                href="tel:+15149371937"
+                className="button button-primary"
+              >
+                CALL FOR PICK-UP <span>→</span>
+              </a>
+            </div>
+
+            <div className="menu-contact-card">
+              <div className="menu-contact-item">
+                <span>📍</span>
+
+                <div>
+                  <small>ADDRESS</small>
+
+                  <strong>
+                    1407 Rue St Marc
+                    <br />
+                    Montréal, QC H3H 2G4
+                  </strong>
+                </div>
+              </div>
+
+              <div className="menu-contact-item">
+                <span>📞</span>
+
+                <div>
+                  <small>PHONE</small>
+
+                  <a href="tel:+15149371937">
+                    514-937-1937
+                  </a>
+                </div>
+              </div>
+
+              <div className="menu-contact-item">
+                <span>🕐</span>
+
+                <div>
+                  <small>HOURS</small>
+
+                  <div className="menu-hours">
+                    {hours.map(([day, time]) => (
+                      <div key={day}>
+                        <span>{day}</span>
+                        <strong>{time}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* DELIVERY */}
+          <div className="menu-delivery-block">
+            <div>
+              <p className="eyebrow orange">DELIVERY</p>
+
+              <h3>
+                PICKS
+                <span>TO YOUR DOOR.</span>
+              </h3>
+
+              <p>
+                Order your favourites through your preferred delivery
+                platform.
+              </p>
+            </div>
+
+            <div className="delivery-links">
+              {deliveryPlatforms.map((platform) => (
+                <a
+                  key={platform.name}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {platform.name}
+                  <span>↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* INSTAGRAM */}
+          <div className="menu-instagram">
+            <a
+              href="https://www.instagram.com/picks.mtl/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                />
+              </svg>
+
+              <span>Follow @picks.mtl</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTOM CTA */}
       <section className="menu-bottom-cta">
         <Image
           src="/logo.png"
@@ -368,9 +759,13 @@ export default function MenuPage() {
           <span>PICK?</span>
         </h2>
 
-        <Link href="/" className="button button-primary">
-          BACK HOME <span>→</span>
-        </Link>
+        <p>
+          Fresh ingredients. Big flavour. Your burger, your way.
+        </p>
+
+        <a href="tel:+15149371937" className="button button-primary">
+          CALL FOR PICK-UP <span>→</span>
+        </a>
       </section>
     </main>
   );

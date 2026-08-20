@@ -63,21 +63,32 @@ const freeVeggies = [
 const freeSauces = [
   "Ketchup",
   "Mustard",
-  "Mayo",
+  "Mayonnaise",
   "Wasabi Mayo",
   "Chipotle Mayo",
   "Honey Mustard",
   "Spicy Ketchup",
-  "Aioli",
+  "Garlic Mayo",
+  "Grilled Red Pepper",
+  "Dried Tomato, Basil & Aioli",
 ];
 
 const paidToppings = [
-  "Cheese",
-  "Bacon",
-  "Egg",
-  "Steak",
-  "Kimchi",
-  "Sautéed Mushrooms",
+  { name: "Egg", price: "$1.49" },
+  { name: "Steak", price: "$4.49" },
+  { name: "Bacon", price: "$1.49" },
+  { name: "Olives", price: "$0.49" },
+  { name: "Kimchi", price: "$1.29" },
+  { name: "Sautéed Mushrooms", price: "$0.99" },
+  { name: "Caramelised Onions", price: "$0.99" },
+  { name: "Deep Fried Onions", price: "$1.29" },
+  { name: "Grilled Red Peppers", price: "$1.29" },
+  { name: "Cheddar", price: "$0.99" },
+  { name: "Mozzarella", price: "$0.99" },
+  { name: "Provolone", price: "$0.99" },
+  { name: "Swiss", price: "$1.29" },
+  { name: "Smoked Gouda", price: "$1.29" },
+  { name: "Brie", price: "$1.29" },
 ];
 
 const menuCategories = [
@@ -113,6 +124,39 @@ const menuCategories = [
   },
 ];
 
+const deliveryPlatforms = [
+  {
+    name: "Uber Eats",
+    href: "https://www.ubereats.com/ca",
+  },
+  {
+    name: "DoorDash",
+    href: "https://www.doordash.com/en-CA/food-delivery/",
+  },
+  {
+    name: "Skip",
+    href: "https://www.skipthedishes.com/",
+  },
+  {
+    name: "Fantuan",
+    href: "https://order.fantuan.ca/delivery/city/montreal/ca",
+  },
+  {
+    name: "HungryPanda",
+    href: "https://www.hungrypanda.co/",
+  },
+];
+
+const hours = [
+  ["Monday", "11:30 a.m. – 9:30 p.m."],
+  ["Tuesday", "11:30 a.m. – 9:30 p.m."],
+  ["Wednesday", "11:30 a.m. – 7:00 p.m."],
+  ["Thursday", "11:30 a.m. – 9:30 p.m."],
+  ["Friday", "11:30 a.m. – 11:00 p.m."],
+  ["Saturday", "2:00 p.m. – 11:00 p.m."],
+  ["Sunday", "3:00 p.m. – 10:00 p.m."],
+];
+
 export default function Home() {
   return (
     <main>
@@ -133,11 +177,11 @@ export default function Home() {
             <Link href="#korean-fusion">Korean Fusion</Link>
             <Link href="#build">Build Your Burger</Link>
             <Link href="/menu">Menu</Link>
-            <Link href="#visit">Visit</Link>
+            <Link href="#visit">Visit Us</Link>
           </nav>
 
           <Link href="/menu" className="header-button">
-            SEE MENU <span>→</span>
+            ORDER NOW <span>→</span>
           </Link>
         </div>
       </header>
@@ -156,7 +200,10 @@ export default function Home() {
             <p className="hero-description">
               Start with a great burger. Pick your toppings, load it with
               fresh veggies, choose your favourite sauce and make it yours.
-              <strong>Good ingredients. Big flavour. Zero boring.</strong>
+              <strong>
+                Fresh ingredients, bold flavour and made exactly the way you
+                like it.
+              </strong>
             </p>
 
             <div className="hero-buttons">
@@ -259,7 +306,7 @@ export default function Home() {
 
             <p>
               No complicated rules. Pick your burger, choose your favourites
-              and make something that's completely yours.
+              and make something that&apos;s completely yours.
             </p>
           </div>
 
@@ -333,11 +380,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* PAID TOPPINGS */}
+          {/* EXTRAS */}
           <details className="extras-details">
             <summary>
               <span>
-                <small>WANT TO GO ALL IN?</small>
+                <small>MAKE IT YOURS</small>
                 <strong>See all topping options</strong>
               </span>
 
@@ -346,13 +393,16 @@ export default function Home() {
 
             <div className="extras-panel">
               <p>
-                Add something extra when you feel like taking your burger to
-                the next level.
+                A few favourites for when you want to take your burger
+                somewhere different.
               </p>
 
               <div className="paid-pills">
                 {paidToppings.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span key={item.name}>
+                    {item.name}
+                    <small>{item.price}</small>
+                  </span>
                 ))}
               </div>
 
@@ -371,12 +421,13 @@ export default function Home() {
             <p className="eyebrow orange">FEEL LIKE MAKING IT A MEAL?</p>
 
             <h2>
-              ADD FRIES.
-              <span>ADD A DRINK.</span>
+              BURGER.
+              <span>FRIES. DRINK.</span>
             </h2>
 
             <p>
-              Got your burger? Make it a combo and keep the good stuff coming.
+              Got your burger? Add crispy fries and a drink and make it a
+              proper PICKS meal.
             </p>
 
             <div className="combo-price">
@@ -395,7 +446,7 @@ export default function Home() {
             <div className="combo-food burger-food">
               <Image
                 src="/Picks Chicken Burger.jpg"
-                alt="PICKS burger combo"
+                alt="PICKS burger"
                 fill
                 sizes="260px"
               />
@@ -494,45 +545,126 @@ export default function Home() {
           </div>
 
           <div className="visit-info">
+            {/* ADDRESS */}
             <div className="info-item">
               <span className="info-icon">📍</span>
 
               <div>
                 <small>FIND US</small>
-                <strong>YOUR PICKS ADDRESS HERE</strong>
+                <strong>
+                  1407 Rue St Marc
+                  <br />
+                  Montréal, QC H3H 2G4
+                </strong>
               </div>
             </div>
 
+            {/* HOURS */}
             <div className="info-item">
               <span className="info-icon">🕐</span>
 
               <div>
                 <small>OPENING HOURS</small>
-                <strong>YOUR HOURS HERE</strong>
+
+                <div className="hours-list">
+                  {hours.map(([day, time]) => (
+                    <div key={day}>
+                      <span>{day}</span>
+                      <strong>{time}</strong>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
+            {/* PICKUP */}
             <div className="info-item">
               <span className="info-icon">📞</span>
 
               <div>
-                <small>CALL US</small>
-                <strong>514.937.1937</strong>
+                <small>CALL FOR PICK-UP</small>
+
+                <a href="tel:+15149371937" className="pickup-phone">
+                  514-937-1937
+                </a>
+
+                <p className="pickup-note">
+                  Call ahead and we&apos;ll have your PICKS ready.
+                </p>
               </div>
             </div>
 
+            {/* DELIVERY */}
+            <div className="delivery-block">
+              <small>ORDER DELIVERY</small>
+
+              <p>Find PICKS on your favourite delivery platform.</p>
+
+              <div className="delivery-links">
+                {deliveryPlatforms.map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {platform.name}
+                    <span>↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* BUTTONS */}
             <div className="visit-buttons">
-              <Link href="/menu" className="button button-yellow">
-                VIEW MENU <span>→</span>
-              </Link>
+              <a
+                href="tel:+15149371937"
+                className="button button-yellow"
+              >
+                CALL FOR PICK-UP <span>→</span>
+              </a>
 
               <a
                 href="https://www.instagram.com/picks.mtl/"
                 target="_blank"
                 rel="noreferrer"
                 className="instagram-link"
+                aria-label="Follow PICKS on Instagram"
               >
-                @picks.mtl ↗
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                  />
+                </svg>
+
+                <span>@picks.mtl</span>
+                <span>↗</span>
               </a>
             </div>
           </div>
