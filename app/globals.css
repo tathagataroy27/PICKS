@@ -2669,3 +2669,173 @@ body {
     text-align: center;
   }
 }
+/* =========================================================
+   BUILD STEP NUMBER — FINAL FIX
+   Keeps 01 / 02 / 03 clear and readable
+========================================================= */
+
+.build-step .step-number {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  margin: 0 0 22px;
+
+  border-radius: 50%;
+
+  background: var(--orange);
+
+  color: #ffffff !important;
+
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0;
+
+  opacity: 1 !important;
+
+  text-align: center;
+
+  text-shadow: none !important;
+
+  box-shadow: none;
+
+  transform: none;
+}
+
+/* Dark and light cards use the exact same number treatment */
+.build-step-dark .step-number,
+.build-step:not(.build-step-dark) .step-number,
+.build-step .orange-number {
+  background: var(--orange);
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Make sure no pseudo-element creates another number */
+.build-step .step-number::before,
+.build-step .step-number::after {
+  content: none !important;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .build-step .step-number {
+    width: 52px;
+    height: 52px;
+
+    font-size: 27px;
+    margin-bottom: 20px;
+  }
+}
+/* =========================================================
+   TOPPING OPTIONS
+========================================================= */
+
+.topping-group {
+  margin-top: 28px;
+}
+
+.topping-group h4 {
+  margin: 0 0 16px;
+
+  color: var(--green-deep);
+
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Separate CHEESE section */
+.cheese-group {
+  margin-top: 34px;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(7, 61, 53, 0.14);
+}
+
+/* Pills */
+.paid-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.paid-pills span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+
+  min-height: 46px;
+  padding: 9px 16px;
+
+  border-radius: 999px;
+
+  background: white;
+  color: var(--green-deep);
+
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Topping name */
+.paid-pills span b {
+  font-weight: 800;
+}
+
+/* PRICE */
+.paid-pills span em {
+  margin-left: 8px;
+
+  color: var(--green-deep);
+
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* SEE ALL OPTIONS */
+.extras-details .text-link {
+  display: inline-block;
+  margin-top: 30px;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+  .topping-group {
+    margin-top: 24px;
+  }
+
+  .cheese-group {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+
+  .paid-pills {
+    gap: 8px;
+  }
+
+  .paid-pills span {
+    gap: 16px;
+    min-height: 43px;
+    padding: 8px 13px;
+    font-size: 13px;
+  }
+
+  .paid-pills span em {
+    margin-left: 4px;
+    font-size: 12px;
+  }
+}
