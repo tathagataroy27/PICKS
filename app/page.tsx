@@ -37,9 +37,18 @@ const fusionItems = [
 ];
 
 const burgerChoices = [
-  { title: "PICKS Burger", image: "/Picks Chicken Burger.jpg" },
-  { title: "Double Burger", image: "/Double Burger.png" },
-  { title: "Steak Burger", image: "/steak burger.jpg" },
+  {
+    title: "PICKS Burger",
+    image: "/Picks Chicken Burger.jpg",
+  },
+  {
+    title: "Double Burger",
+    image: "/Double Burger.png",
+  },
+  {
+    title: "Steak Burger",
+    image: "/steak burger.jpg",
+  },
 ];
 
 const freeVeggies = [
@@ -92,20 +101,64 @@ const cheeseNames = [
 ];
 
 const menuCategories = [
-  { title: "Burgers", description: "Fresh burgers. Built your way.", image: "/Picks Chicken Burger.jpg" },
-  { title: "Korean Fusion", description: "Bold Korean-inspired flavours.", image: "/Kimchi Burger.PNG" },
-  { title: "Kogos", description: "Street food with a PICKS twist.", image: "/Kogo.jpeg" },
-  { title: "K-Tacos", description: "Korean-inspired tacos.", image: "/Taco.jpeg" },
-  { title: "Sides", description: "Fries, poutine & more.", image: "/Fries.png" },
-  { title: "Chicken", description: "Crispy, golden & satisfying.", image: "/Chicken Nuggets 2.jpg" },
+  {
+    title: "Burgers",
+    description: "Fresh burgers. Built your way.",
+    image: "/Picks Chicken Burger.jpg",
+  },
+  {
+    title: "Korean Fusion",
+    description: "Bold Korean-inspired flavours.",
+    image: "/Kimchi Burger.PNG",
+  },
+  {
+    title: "Kogos",
+    description: "Street food with a PICKS twist.",
+    image: "/Kogo.jpeg",
+  },
+  {
+    title: "K-Tacos",
+    description: "Korean-inspired tacos.",
+    image: "/Taco.jpeg",
+  },
+  {
+    title: "Sides",
+    description: "Fries, poutine & more.",
+    image: "/Fries.png",
+  },
+  {
+    title: "Chicken",
+    description: "Crispy, golden & satisfying.",
+    image: "/Chicken Nuggets 2.jpg",
+  },
 ];
 
 const deliveryPlatforms = [
-  { name: "Uber Eats", href: "https://www.ubereats.com/ca" },
-  { name: "DoorDash", href: "https://www.doordash.com/en-CA/food-delivery/" },
-  { name: "Skip", href: "https://www.skipthedishes.com/" },
-  { name: "Fantuan", href: "https://order.fantuan.ca/delivery/city/montreal/ca" },
-  { name: "HungryPanda", href: "https://www.hungrypanda.co/" },
+  {
+    name: "Uber Eats",
+    href: "https://www.ubereats.com/ca",
+    logo: "/delivery/uber-eats.png",
+  },
+  {
+    name: "DoorDash",
+    href: "https://www.doordash.com/en-CA/food-delivery/",
+    logo: "/delivery/doordash.png",
+  },
+  {
+    name: "Skip",
+    href: "https://www.skipthedishes.com/",
+    logo: "/delivery/skip.png",
+  },
+  {
+    name: "Fantuan",
+    href: "https://order.fantuan.ca/delivery/city/montreal/ca",
+    logo: "/delivery/fantuan.png",
+  },
+  {
+    name: "HungryPanda",
+    href: "https://www.hungrypanda.co/",
+    logo: "/delivery/hungrypanda.png",
+  },
 ];
 
 const hours = [
@@ -129,17 +182,27 @@ export default function Home() {
 
   return (
     <main>
-      {/* HEADER */}
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
       <header className="site-header">
         <div className="header-inner">
           <Link href="/" className="brand" aria-label="PICKS home">
-            <Image src="/logo.png" alt="PICKS" width={110} height={70} priority />
+            <Image
+              src="/logo.png"
+              alt="PICKS"
+              width={110}
+              height={70}
+              priority
+            />
           </Link>
 
           <nav className="desktop-nav">
             <Link href="#korean-fusion">Korean Fusion</Link>
             <Link href="#build">Build Your Burger</Link>
             <Link href="/menu">Menu</Link>
+            <Link href="#delivery">Delivery</Link>
             <Link href="#visit">Visit Us</Link>
           </nav>
 
@@ -149,7 +212,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
       <section className="hero">
         <div className="hero-inner">
           <div className="hero-copy">
@@ -181,6 +247,7 @@ export default function Home() {
 
             <div className="hero-highlight">
               <span>✦</span>
+
               <p>
                 Fresh ingredients,
                 <strong>made your way.</strong>
@@ -213,12 +280,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* KOREAN FUSION */}
+      {/* =====================================================
+          KOREAN FUSION
+      ===================================================== */}
+
       <section className="fusion-section" id="korean-fusion">
         <div className="section-container">
           <div className="fusion-heading">
             <div>
               <p className="eyebrow orange">OUR SIGNATURE TWIST</p>
+
               <h2>
                 KOREAN
                 <span>FUSION.</span>
@@ -255,7 +326,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BUILD YOUR BURGER */}
+      {/* =====================================================
+          BUILD YOUR BURGER
+      ===================================================== */}
+
       <section className="build-section" id="build">
         <div className="section-container">
           <div className="build-heading">
@@ -273,10 +347,11 @@ export default function Home() {
           </div>
 
           <div className="build-steps">
-            {/* STEP 1 */}
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
+
               <p className="step-label">START WITH</p>
+
               <h3>YOUR BURGER</h3>
 
               <div className="mini-burgers">
@@ -290,16 +365,18 @@ export default function Home() {
                         sizes="120px"
                       />
                     </div>
+
                     <strong>{burger.title}</strong>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* STEP 2 */}
             <div className="build-step">
               <div className="step-number orange-number">02</div>
+
               <p className="step-label">THEN ADD</p>
+
               <h3>FREE VEGGIES</h3>
 
               <p className="step-description">
@@ -315,10 +392,11 @@ export default function Home() {
               <span className="free-badge">INCLUDED</span>
             </div>
 
-            {/* STEP 3 */}
             <div className="build-step">
               <div className="step-number orange-number">03</div>
+
               <p className="step-label">FINISH WITH</p>
+
               <h3>YOUR SAUCE</h3>
 
               <p className="step-description">
@@ -335,7 +413,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* EXTRAS */}
           <details className="extras-details">
             <summary>
               <span>
@@ -352,7 +429,6 @@ export default function Home() {
                 somewhere different.
               </p>
 
-              {/* PREMIUM ADD-ONS */}
               <div className="topping-group">
                 <h4>PREMIUM ADD-ONS</h4>
 
@@ -366,7 +442,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CHEESE */}
               <div className="topping-group cheese-group">
                 <h4>CHEESE</h4>
 
@@ -388,11 +463,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMBO */}
+      {/* =====================================================
+          COMBO
+      ===================================================== */}
+
       <section className="combo-section" id="combos">
         <div className="combo-container">
           <div className="combo-copy">
-            <p className="eyebrow orange">FEEL LIKE MAKING IT A MEAL?</p>
+            <p className="eyebrow orange">
+              FEEL LIKE MAKING IT A MEAL?
+            </p>
 
             <h2>
               BURGER.
@@ -409,7 +489,10 @@ export default function Home() {
               <span>FRIES + DRINK</span>
             </div>
 
-            <Link href="/menu#combos" className="button button-yellow">
+            <Link
+              href="/menu#combos"
+              className="button button-yellow"
+            >
               MAKE IT A COMBO <span>→</span>
             </Link>
           </div>
@@ -427,21 +510,42 @@ export default function Home() {
             </div>
 
             <div className="combo-food fries-food">
-              <Image src="/Fries.png" alt="PICKS fries" fill sizes="220px" />
+              <Image
+                src="/Fries.png"
+                alt="PICKS fries"
+                fill
+                sizes="220px"
+              />
             </div>
 
             <div className="combo-food drink-food">
-              <Image src="/Pop.png" alt="Soft drink" fill sizes="120px" />
+              <Image
+                src="/Pop.png"
+                alt="Soft drink"
+                fill
+                sizes="120px"
+              />
             </div>
 
-            <span className="combo-word combo-word-one">BURGER.</span>
-            <span className="combo-word combo-word-two">FRIES.</span>
-            <span className="combo-word combo-word-three">DRINK.</span>
+            <span className="combo-word combo-word-one">
+              BURGER.
+            </span>
+
+            <span className="combo-word combo-word-two">
+              FRIES.
+            </span>
+
+            <span className="combo-word combo-word-three">
+              DRINK.
+            </span>
           </div>
         </div>
       </section>
 
-      {/* MENU PREVIEW */}
+      {/* =====================================================
+          MENU PREVIEW
+      ===================================================== */}
+
       <section className="menu-section">
         <div className="section-container">
           <div className="menu-heading">
@@ -481,14 +585,106 @@ export default function Home() {
           </div>
 
           <div className="menu-button-wrap">
-            <Link href="/menu" className="button button-primary">
+            <Link
+              href="/menu"
+              className="button button-primary"
+            >
               SEE THE FULL MENU <span>→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* VISIT */}
+      {/* =====================================================
+          DELIVERY
+      ===================================================== */}
+
+      <section className="delivery-section" id="delivery">
+        <div className="delivery-container">
+          <div className="delivery-header">
+            <p className="delivery-eyebrow">
+              ORDER DELIVERY
+            </p>
+
+            <h2>
+              PICKS.
+              <span>DELIVERED.</span>
+            </h2>
+
+            <p>
+              Craving PICKS but staying home? Find us on your favourite
+              delivery platform and get your burger, fries and Korean
+              favourites delivered to you.
+            </p>
+          </div>
+
+          <div className="delivery-platforms">
+            {deliveryPlatforms.map((platform) => (
+              <a
+                key={platform.name}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="delivery-platform"
+                aria-label={`Order PICKS on ${platform.name}`}
+              >
+                <div className="delivery-platform-logo">
+                  <img
+                    src={platform.logo}
+                    alt={`${platform.name} logo`}
+                    loading="lazy"
+                  />
+                </div>
+
+                <p className="delivery-platform-name">
+                  {platform.name}
+                </p>
+
+                <span className="delivery-platform-action">
+                  ORDER NOW ↗
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <div className="delivery-bottom">
+            <div className="delivery-pickup">
+              <div className="delivery-pickup-icon">
+                ☎
+              </div>
+
+              <div className="delivery-pickup-copy">
+                <small>OR PICK IT UP</small>
+
+                <strong>
+                  Call us at 514-937-1937
+                </strong>
+              </div>
+            </div>
+
+            <a
+              href="https://www.instagram.com/picks.mtl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="delivery-instagram"
+              aria-label="Follow PICKS on Instagram"
+            >
+              <span className="delivery-instagram-icon">
+                ◎
+              </span>
+
+              <span>@picks.mtl</span>
+
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          VISIT
+      ===================================================== */}
+
       <section className="visit-section" id="visit">
         <div className="visit-container">
           <div className="visit-brand">
@@ -505,16 +701,20 @@ export default function Home() {
               <span>A PICK.</span>
             </h2>
 
-            <p>Fresh. Custom. Delicious.</p>
+            <p>
+              Fresh. Custom. Delicious.
+            </p>
           </div>
 
           <div className="visit-info">
-            {/* ADDRESS */}
             <div className="info-item">
-              <span className="info-icon">📍</span>
+              <span className="info-icon">
+                📍
+              </span>
 
               <div>
                 <small>FIND US</small>
+
                 <strong>
                   1407 Rue St Marc
                   <br />
@@ -523,9 +723,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* HOURS */}
             <div className="info-item">
-              <span className="info-icon">🕐</span>
+              <span className="info-icon">
+                🕐
+              </span>
 
               <div>
                 <small>OPENING HOURS</small>
@@ -541,14 +742,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* PICKUP */}
             <div className="info-item">
-              <span className="info-icon">📞</span>
+              <span className="info-icon">
+                📞
+              </span>
 
               <div>
                 <small>CALL FOR PICK-UP</small>
 
-                <a href="tel:+15149371937" className="pickup-phone">
+                <a
+                  href="tel:+15149371937"
+                  className="pickup-phone"
+                >
                   514-937-1937
                 </a>
 
@@ -558,37 +763,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* DELIVERY */}
-            <div className="delivery-block">
-              <small>ORDER DELIVERY</small>
-
-              <p>Find PICKS on your favourite delivery platform.</p>
-
-              <div className="delivery-links">
-                {deliveryPlatforms.map((platform) => (
-                  <a
-                    key={platform.name}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {platform.name}
-                    <span>↗</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* BUTTONS */}
             <div className="visit-buttons">
-              <a href="tel:+15149371937" className="button button-yellow">
+              <a
+                href="tel:+15149371937"
+                className="button button-yellow"
+              >
                 CALL FOR PICK-UP <span>→</span>
               </a>
 
               <a
                 href="https://www.instagram.com/picks.mtl/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="instagram-link"
                 aria-label="Follow PICKS on Instagram"
               >
@@ -609,6 +795,7 @@ export default function Home() {
                     stroke="currentColor"
                     strokeWidth="2"
                   />
+
                   <circle
                     cx="12"
                     cy="12"
@@ -616,6 +803,7 @@ export default function Home() {
                     stroke="currentColor"
                     strokeWidth="2"
                   />
+
                   <circle
                     cx="17.5"
                     cy="6.5"
