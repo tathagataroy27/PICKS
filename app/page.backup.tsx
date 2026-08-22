@@ -1,3 +1,4 @@
+```tsx
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -133,6 +134,13 @@ const menuCategories = [
   },
 ];
 
+/*
+ * Delivery platforms
+ *
+ * The logos are loaded directly as SVGs from Simple Icons.
+ * Using normal <img> tags here means you do not need to add
+ * remote image domains to next.config.ts.
+ */
 const deliveryPlatforms = [
   {
     name: "Uber Eats",
@@ -149,19 +157,19 @@ const deliveryPlatforms = [
   {
     name: "Skip",
     href: "https://www.skipthedishes.com/",
-    logo: "/delivery/skip.png",
+    logo: "https://cdn.simpleicons.org/skipthedishes",
     alt: "Skip logo",
   },
   {
     name: "Fantuan",
     href: "https://order.fantuan.ca/delivery/city/montreal/ca",
-    logo: "/delivery/fantuan.png",
+    logo: "https://cdn.simpleicons.org/fantuan",
     alt: "Fantuan logo",
   },
   {
     name: "HungryPanda",
     href: "https://www.hungrypanda.co/",
-    logo: "/delivery/HungryPanda.png",
+    logo: "https://cdn.simpleicons.org/hungrypanda",
     alt: "HungryPanda logo",
   },
 ];
@@ -351,6 +359,8 @@ export default function Home() {
           </div>
 
           <div className="build-steps">
+            {/* STEP 1 */}
+
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
 
@@ -376,6 +386,8 @@ export default function Home() {
               </div>
             </div>
 
+            {/* STEP 2 */}
+
             <div className="build-step">
               <div className="step-number orange-number">02</div>
 
@@ -395,6 +407,8 @@ export default function Home() {
 
               <span className="free-badge">INCLUDED</span>
             </div>
+
+            {/* STEP 3 */}
 
             <div className="build-step">
               <div className="step-number orange-number">03</div>
@@ -417,6 +431,8 @@ export default function Home() {
             </div>
           </div>
 
+          {/* TOPPING OPTIONS */}
+
           <details className="extras-details">
             <summary>
               <span>
@@ -433,6 +449,8 @@ export default function Home() {
                 somewhere different.
               </p>
 
+              {/* PREMIUM ADD-ONS */}
+
               <div className="topping-group">
                 <h4>PREMIUM ADD-ONS</h4>
 
@@ -445,6 +463,8 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+
+              {/* CHEESE */}
 
               <div className="topping-group cheese-group">
                 <h4>CHEESE</h4>
@@ -690,38 +710,6 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          FULL MENU PDF
-      ===================================================== */}
-
-      <section className="full-menu-pdf-section" id="full-menu">
-        <div className="section-container">
-          <div className="full-menu-pdf-content">
-            <p className="eyebrow orange">
-              WANT TO SEE EVERYTHING?
-            </p>
-
-            <h2>
-              THE COMPLETE
-              <span>MENU.</span>
-            </h2>
-
-            <p>
-              View our complete menu with all items, prices and options.
-            </p>
-
-            <a
-              href="/menu/full-menu.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button-primary"
-            >
-              VIEW FULL MENU <span>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
           VISIT
       ===================================================== */}
 
@@ -863,3 +851,5 @@ export default function Home() {
     </main>
   );
 }
+```
+

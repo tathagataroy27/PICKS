@@ -3228,4 +3228,1005 @@ body {
   .delivery-pickup {
     align-items: flex-start;
   }
+/* =========================================================
+   MENU VISIT / ORDER SECTION — REDESIGN
+========================================================= */
+
+.menu-visit-section {
+  padding: 110px 0 90px;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
 }
+
+.menu-visit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.85fr);
+  gap: 80px;
+  align-items: start;
+}
+
+/* LEFT SIDE */
+
+.menu-visit-grid > div:first-child {
+  max-width: 650px;
+}
+
+.menu-visit-grid > div:first-child > img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 35px;
+}
+
+.menu-visit-grid > div:first-child .eyebrow {
+  margin-bottom: 14px;
+}
+
+.menu-visit-grid > div:first-child h2 {
+  margin: 0 0 24px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(58px, 6vw, 92px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+
+.menu-visit-grid > div:first-child h2 span {
+  display: block;
+  color: var(--green);
+}
+
+.menu-visit-grid > div:first-child > p:not(.eyebrow) {
+  max-width: 540px;
+  margin-bottom: 32px;
+
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.menu-visit-grid > div:first-child .button {
+  min-width: 300px;
+  min-height: 62px;
+  font-size: 16px;
+}
+
+
+/* RIGHT CONTACT CARD */
+
+.menu-contact-card {
+  padding: 38px 38px 34px;
+
+  border-radius: 30px;
+  background: var(--green-deep);
+  color: white;
+
+  box-shadow: 0 25px 60px rgba(0, 55, 40, 0.14);
+}
+
+.menu-contact-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+  align-items: start;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.menu-contact-item:first-child {
+  padding-top: 0;
+}
+
+.menu-contact-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.menu-contact-item > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+
+  font-size: 20px;
+}
+
+.menu-contact-item small {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #8ccfba;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.menu-contact-item strong,
+.menu-contact-item a {
+  display: block;
+
+  color: white;
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.menu-contact-item a:hover {
+  color: var(--yellow);
+}
+
+
+/* HOURS */
+
+.menu-hours {
+  display: grid;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.menu-hours > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.menu-hours > div > span {
+  color: #a6c8be;
+}
+
+.menu-hours > div > strong {
+  color: white;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
+
+.menu-delivery-block {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 60px;
+  align-items: center;
+
+  margin-top: 85px;
+  padding: 45px 50px;
+
+  border-radius: 30px;
+
+  background: var(--green);
+  color: white;
+
+  box-shadow: 0 20px 50px rgba(0, 70, 50, 0.12);
+}
+
+.menu-delivery-block .eyebrow {
+  margin-bottom: 12px;
+  color: var(--yellow);
+}
+
+.menu-delivery-block h3 {
+  margin: 0 0 15px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(42px, 4vw, 65px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.menu-delivery-block h3 span {
+  display: block;
+  color: white;
+}
+
+.menu-delivery-block p:not(.eyebrow) {
+  max-width: 420px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* DELIVERY BUTTONS */
+
+.delivery-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.delivery-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  min-height: 62px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.delivery-links a:hover {
+  transform: translateY(-3px);
+  background: white;
+  border-color: white;
+  color: var(--green-deep);
+}
+
+.delivery-links a span {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.menu-instagram {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 35px;
+}
+
+.menu-instagram a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 800;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.menu-instagram a:hover {
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+.menu-instagram svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .menu-visit-section {
+    padding: 80px 0 70px;
+  }
+
+  .menu-visit-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .menu-visit-grid > div:first-child {
+    max-width: 700px;
+  }
+
+  .menu-contact-card {
+    max-width: 700px;
+  }
+
+  .menu-delivery-block {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 60px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .menu-visit-section {
+    padding: 65px 0 55px;
+  }
+
+  .menu-visit-grid {
+    gap: 35px;
+  }
+
+  .menu-visit-grid > div:first-child > img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 25px;
+  }
+
+  .menu-visit-grid > div:first-child h2 {
+    font-size: 56px;
+  }
+
+  .menu-visit-grid > div:first-child > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .menu-visit-grid > div:first-child .button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .menu-contact-card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+
+  .menu-contact-item {
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+  }
+
+  .menu-contact-item > span {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .menu-contact-item strong,
+  .menu-contact-item a {
+    font-size: 16px;
+  }
+
+  .menu-hours > div {
+    grid-template-columns: 82px 1fr;
+    font-size: 12px;
+  }
+
+  .menu-hours > div > strong {
+    font-size: 12px;
+  }
+
+  .menu-delivery-block {
+    margin-top: 45px;
+    padding: 30px 22px;
+    border-radius: 24px;
+  }
+
+  .menu-delivery-block h3 {
+    font-size: 44px;
+  }
+
+  .delivery-links {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-links a {
+    min-height: 56px;
+  }
+
+  .menu-instagram {
+    margin-top: 28px;
+  }
+ }
+}
+/* =========================================================
+   MENU PAGE — VISIT / ORDER SECTION
+========================================================= */
+
+.menu-visit-section {
+  padding: 100px 0 80px;
+  background: var(--cream);
+}
+
+.menu-visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.menu-visit-grid > div:first-child {
+  max-width: 620px;
+}
+
+.menu-visit-grid > div:first-child > img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 25px;
+}
+
+.menu-visit-grid > div:first-child .eyebrow {
+  margin-bottom: 12px;
+}
+
+.menu-visit-grid > div:first-child h2 {
+  margin: 0 0 22px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(58px, 6vw, 90px);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+
+.menu-visit-grid > div:first-child h2 span {
+  display: block;
+  color: var(--green);
+}
+
+.menu-visit-grid > div:first-child > p:not(.eyebrow) {
+  max-width: 520px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.menu-visit-grid > div:first-child .button {
+  min-width: 300px;
+  min-height: 62px;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
+.menu-contact-card {
+  padding: 35px;
+  border-radius: 28px;
+  background: var(--green-deep);
+  color: white;
+  box-shadow: 0 25px 60px rgba(0, 55, 40, 0.15);
+}
+
+.menu-contact-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.menu-contact-item:first-child {
+  padding-top: 0;
+}
+
+.menu-contact-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.menu-contact-item > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+
+  font-size: 20px;
+}
+
+.menu-contact-item small {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #91cdbb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.menu-contact-item strong,
+.menu-contact-item a {
+  color: white;
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.menu-contact-item a:hover {
+  color: var(--yellow);
+}
+
+
+/* =========================================================
+   HOURS
+========================================================= */
+
+.menu-hours {
+  display: grid;
+  gap: 8px;
+}
+
+.menu-hours > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.menu-hours > div span {
+  color: #9bc8bb;
+}
+
+.menu-hours > div strong {
+  color: white;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
+
+.menu-delivery-block {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+
+  margin-top: 70px;
+  padding: 42px 48px;
+
+  border-radius: 30px;
+
+  background: var(--green);
+  color: white;
+
+  box-shadow: 0 20px 50px rgba(0, 70, 50, 0.12);
+}
+
+.menu-delivery-block .eyebrow {
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+
+.menu-delivery-block h3 {
+  margin: 0 0 15px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(40px, 4vw, 62px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.menu-delivery-block h3 span {
+  display: block;
+  color: white;
+}
+
+.menu-delivery-block p:not(.eyebrow) {
+  margin: 0;
+  max-width: 430px;
+
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* DELIVERY LINKS */
+
+.delivery-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.delivery-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 58px;
+  padding: 0 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+
+  transition: all 180ms ease;
+}
+
+.delivery-links a:hover {
+  transform: translateY(-3px);
+  background: white;
+  color: var(--green-deep);
+}
+
+.delivery-links a span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.menu-instagram {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.menu-instagram a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 800;
+
+  transition: all 180ms ease;
+}
+
+.menu-instagram a:hover {
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  .menu-visit-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .menu-contact-card {
+    max-width: 700px;
+  }
+
+  .menu-delivery-block {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-visit-section {
+    padding: 65px 0 55px;
+  }
+
+  .menu-visit-grid > div:first-child h2 {
+    font-size: 55px;
+  }
+
+  .menu-visit-grid > div:first-child > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .menu-visit-grid > div:first-child .button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .menu-contact-card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+
+  .menu-contact-item {
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+  }
+
+  .menu-contact-item > span {
+    width: 38px;
+    height: 38px;
+  }
+
+  .menu-hours > div {
+    grid-template-columns: 82px 1fr;
+    font-size: 12px;
+  }
+
+  .menu-hours > div strong {
+    font-size: 12px;
+  }
+
+  .menu-delivery-block {
+    padding: 30px 22px;
+    border-radius: 24px;
+  }
+
+  .menu-delivery-block h3 {
+    font-size: 44px;
+  }
+
+  .delivery-links {
+    grid-template-columns: 1fr;
+  }
+}
+/* =====================================================
+   FULL MENU PDF
+===================================================== */
+
+.full-menu-pdf-section {
+  padding: 80px 0;
+  background: #f4f0e7;
+}
+
+.full-menu-pdf-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 340px;
+  padding: 60px 70px;
+  background: #1d1d1b;
+  border-radius: 28px;
+}
+
+.full-menu-pdf-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.full-menu-pdf-copy .eyebrow {
+  margin-bottom: 14px;
+}
+
+.full-menu-pdf-copy h2 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.full-menu-pdf-copy h2 span {
+  display: block;
+  color: #deb53a;
+}
+
+.full-menu-pdf-copy > p:not(.eyebrow) {
+  max-width: 500px;
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.full-menu-pdf-visual {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  width: 240px;
+  height: 300px;
+  transform: translateY(-50%) rotate(7deg);
+}
+
+.pdf-paper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 35px 25px;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.pdf-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 55px;
+  background: #deb53a;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.pdf-paper span {
+  display: inline-flex;
+  padding: 7px 10px;
+  background: #e85d04;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+}
+
+.pdf-paper strong {
+  display: block;
+  margin-top: 45px;
+  color: #1d1d1b;
+  font-size: 34px;
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .full-menu-pdf-section {
+    padding: 55px 0;
+  }
+
+  .full-menu-pdf-card {
+    min-height: auto;
+    padding: 45px 30px;
+    border-radius: 22px;
+  }
+
+  .full-menu-pdf-copy {
+    max-width: 100%;
+  }
+
+  .full-menu-pdf-copy h2 {
+    font-size: 48px;
+  }
+
+  .full-menu-pdf-copy > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+
+  .full-menu-pdf-visual {
+    display: none;
+  }
+/* =====================================================
+   FULL MENU PDF
+===================================================== */
+
+.full-menu-pdf-section {
+  padding: 90px 0;
+  background: #f5f1e8;
+}
+
+.full-menu-pdf-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 55px;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.full-menu-pdf-copy {
+  max-width: 650px;
+}
+
+.full-menu-pdf-copy h2 {
+  margin: 10px 0 20px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.full-menu-pdf-copy h2 span {
+  display: block;
+  color: #8cc63f;
+}
+
+.full-menu-pdf-copy > p:last-of-type {
+  max-width: 540px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.full-menu-pdf-visual {
+  min-width: 260px;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #deb53a;
+  border-radius: 22px;
+  transform: rotate(3deg);
+  text-align: center;
+}
+
+.pdf-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95px;
+  height: 115px;
+  margin-bottom: 18px;
+  background: #ffffff;
+  color: #e34b32;
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.full-menu-pdf-visual strong {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.full-menu-pdf-visual span {
+  margin-top: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .full-menu-pdf-section {
+    padding: 60px 0;
+  }
+
+  .full-menu-pdf-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 25px;
+    gap: 40px;
+  }
+
+  .full-menu-pdf-copy h2 {
+    font-size: 48px;
+  }
+
+  .full-menu-pdf-visual {
+    align-self: center;
+    min-width: 220px;
+    width: 220px;
+    height: 220px;
+  }
+}}
