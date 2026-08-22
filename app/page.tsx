@@ -137,13 +137,13 @@ const deliveryPlatforms = [
   {
     name: "Uber Eats",
     href: "https://www.ubereats.com/ca",
-    logo: "https://cdn.simpleicons.org/ubereats",
+    logo: "/delivery/uber-eats.png",
     alt: "Uber Eats logo",
   },
   {
     name: "DoorDash",
     href: "https://www.doordash.com/en-CA/food-delivery/",
-    logo: "https://cdn.simpleicons.org/doordash",
+    logo: "/delivery/doordash.png",
     alt: "DoorDash logo",
   },
   {
@@ -351,6 +351,8 @@ export default function Home() {
           </div>
 
           <div className="build-steps">
+            {/* STEP 1 */}
+
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
 
@@ -376,6 +378,8 @@ export default function Home() {
               </div>
             </div>
 
+            {/* STEP 2 */}
+
             <div className="build-step">
               <div className="step-number orange-number">02</div>
 
@@ -395,6 +399,8 @@ export default function Home() {
 
               <span className="free-badge">INCLUDED</span>
             </div>
+
+            {/* STEP 3 */}
 
             <div className="build-step">
               <div className="step-number orange-number">03</div>
@@ -416,6 +422,8 @@ export default function Home() {
               <span className="free-badge">INCLUDED</span>
             </div>
           </div>
+
+          {/* EXTRAS */}
 
           <details className="extras-details">
             <summary>
@@ -474,9 +482,7 @@ export default function Home() {
       <section className="combo-section" id="combos">
         <div className="combo-container">
           <div className="combo-copy">
-            <p className="eyebrow orange">
-              FEEL LIKE MAKING IT A MEAL?
-            </p>
+            <p className="eyebrow orange">FEEL LIKE MAKING IT A MEAL?</p>
 
             <h2>
               BURGER.
@@ -493,10 +499,7 @@ export default function Home() {
               <span>FRIES + DRINK</span>
             </div>
 
-            <Link
-              href="/menu#combos"
-              className="button button-yellow"
-            >
+            <Link href="/menu#combos" className="button button-yellow">
               MAKE IT A COMBO <span>→</span>
             </Link>
           </div>
@@ -531,17 +534,26 @@ export default function Home() {
               />
             </div>
 
-            <span className="combo-word combo-word-one">
-              BURGER.
-            </span>
+            <span className="combo-word combo-word-one">BURGER.</span>
+            <span className="combo-word combo-word-two">FRIES.</span>
+            <span className="combo-word combo-word-three">DRINK.</span>
+          </div>
+        </div>
+      </section>
 
-            <span className="combo-word combo-word-two">
-              FRIES.
-            </span>
+      {/* =====================================================
+          OPEN UNTIL LATE PROMO
+      ===================================================== */}
 
-            <span className="combo-word combo-word-three">
-              DRINK.
-            </span>
+      <section className="late-promo-section">
+        <div className="late-promo-container">
+          <div className="late-promo-image">
+            <Image
+              src="/OpenTillLate.png"
+              alt="PICKS is open until 11 PM on Friday and Saturday"
+              fill
+              sizes="(max-width: 768px) 100vw, 1200px"
+            />
           </div>
         </div>
       </section>
@@ -589,134 +601,9 @@ export default function Home() {
           </div>
 
           <div className="menu-button-wrap">
-            <Link
-              href="/menu"
-              className="button button-primary"
-            >
+            <Link href="/menu" className="button button-primary">
               SEE THE FULL MENU <span>→</span>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          DELIVERY
-      ===================================================== */}
-
-      <section className="delivery-section" id="delivery">
-        <div className="delivery-container">
-          <div className="delivery-header">
-            <p className="delivery-eyebrow">
-              ORDER DELIVERY
-            </p>
-
-            <h2>
-              PICKS.
-              <span>DELIVERED.</span>
-            </h2>
-
-            <p>
-              Craving PICKS but staying home?
-              Find us on your favourite delivery platform and get your
-              burger, fries and Korean favourites delivered to you.
-            </p>
-          </div>
-
-          <div className="delivery-platforms">
-            {deliveryPlatforms.map((platform) => (
-              <a
-                key={platform.name}
-                href={platform.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="delivery-platform"
-                aria-label={`Order PICKS on ${platform.name}`}
-              >
-                <div
-                  className={`delivery-platform-logo delivery-logo-${platform.name
-                    .toLowerCase()
-                    .replace(/\s+/g, "")}`}
-                >
-                  <img
-                    src={platform.logo}
-                    alt={platform.alt}
-                    loading="lazy"
-                  />
-                </div>
-
-                <p className="delivery-platform-name">
-                  {platform.name}
-                </p>
-
-                <span className="delivery-platform-action">
-                  ORDER NOW ↗
-                </span>
-              </a>
-            ))}
-          </div>
-
-          <div className="delivery-bottom">
-            <div className="delivery-pickup">
-              <div className="delivery-pickup-icon">
-                ☎
-              </div>
-
-              <div className="delivery-pickup-copy">
-                <small>OR PICK IT UP</small>
-
-                <strong>
-                  Call us at 514-937-1937
-                </strong>
-              </div>
-            </div>
-
-            <a
-              href="https://www.instagram.com/picks.mtl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="delivery-instagram"
-              aria-label="Follow PICKS on Instagram"
-            >
-              <span className="delivery-instagram-icon">
-                ◎
-              </span>
-
-              <span>@picks.mtl</span>
-
-              <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          FULL MENU PDF
-      ===================================================== */}
-
-      <section className="full-menu-pdf-section" id="full-menu">
-        <div className="section-container">
-          <div className="full-menu-pdf-content">
-            <p className="eyebrow orange">
-              WANT TO SEE EVERYTHING?
-            </p>
-
-            <h2>
-              THE COMPLETE
-              <span>MENU.</span>
-            </h2>
-
-            <p>
-              View our complete menu with all items, prices and options.
-            </p>
-
-            <a
-              href="/menu/full-menu.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button-primary"
-            >
-              VIEW FULL MENU <span>→</span>
-            </a>
           </div>
         </div>
       </section>
@@ -741,16 +628,14 @@ export default function Home() {
               <span>A PICK.</span>
             </h2>
 
-            <p>
-              Fresh. Custom. Delicious.
-            </p>
+            <p>Fresh. Custom. Delicious.</p>
           </div>
 
           <div className="visit-info">
+            {/* ADDRESS */}
+
             <div className="info-item">
-              <span className="info-icon">
-                📍
-              </span>
+              <span className="info-icon">📍</span>
 
               <div>
                 <small>FIND US</small>
@@ -763,10 +648,10 @@ export default function Home() {
               </div>
             </div>
 
+            {/* HOURS */}
+
             <div className="info-item">
-              <span className="info-icon">
-                🕐
-              </span>
+              <span className="info-icon">🕐</span>
 
               <div>
                 <small>OPENING HOURS</small>
@@ -782,18 +667,15 @@ export default function Home() {
               </div>
             </div>
 
+            {/* PICKUP */}
+
             <div className="info-item">
-              <span className="info-icon">
-                📞
-              </span>
+              <span className="info-icon">📞</span>
 
               <div>
                 <small>CALL FOR PICK-UP</small>
 
-                <a
-                  href="tel:+15149371937"
-                  className="pickup-phone"
-                >
+                <a href="tel:+15149371937" className="pickup-phone">
                   514-937-1937
                 </a>
 
@@ -802,6 +684,42 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
+            {/* DELIVERY */}
+
+            <div className="delivery-block">
+              <small>ORDER DELIVERY</small>
+
+              <p>Find PICKS on your favourite delivery platform.</p>
+
+              <div className="delivery-logo-grid">
+                {deliveryPlatforms.map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="delivery-platform-card"
+                    aria-label={`Order PICKS on ${platform.name}`}
+                  >
+                    <div className="delivery-platform-logo">
+                      <Image
+                        src={platform.logo}
+                        alt={platform.alt}
+                        fill
+                        sizes="110px"
+                      />
+                    </div>
+
+                    <strong>{platform.name}</strong>
+
+                    <span>ORDER NOW ↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* BUTTONS */}
 
             <div className="visit-buttons">
               <a
@@ -853,10 +771,41 @@ export default function Home() {
                 </svg>
 
                 <span>@picks.mtl</span>
-
                 <span>↗</span>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FULL MENU PDF
+      ===================================================== */}
+
+      <section className="full-menu-pdf-section" id="full-menu">
+        <div className="section-container">
+          <div className="full-menu-pdf-content">
+            <p className="eyebrow orange">
+              WANT TO SEE EVERYTHING?
+            </p>
+
+            <h2>
+              THE COMPLETE
+              <span>MENU.</span>
+            </h2>
+
+            <p>
+              View our complete menu with all items, prices and options.
+            </p>
+
+            <a
+              href="/menu/full-menu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-primary"
+            >
+              VIEW FULL MENU PDF <span>↗</span>
+            </a>
           </div>
         </div>
       </section>
