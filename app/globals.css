@@ -2676,7 +2676,7 @@ body {
 :root {
   --green: #ff5a1f;
   --green-dark: #d73d08;
-  --green-deep: #16120f;
+  --green-deep: #062c23;
   --green-light: #fff0e8;
   --yellow: #d8ff4f;
   --yellow-light: #f2ffd1;
@@ -2697,7 +2697,7 @@ body {
 .site-header {
   position: relative;
   z-index: 20;
-  background: var(--green-deep);
+  background: #041b16;
   color: #fff;
   border-bottom: 1px solid rgba(255,255,255,.16);
 }
@@ -2729,7 +2729,9 @@ body {
 .hero {
   min-height: 650px;
   padding: 0 0 78px;
-  background: var(--green-deep);
+  background:
+    radial-gradient(circle at 78% 20%, rgba(67, 132, 102, 0.18), transparent 28%),
+    linear-gradient(120deg, #041b16 0%, #062c23 58%, #0b4033 100%);
   color: #fff;
   overflow: hidden;
 }
