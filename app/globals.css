@@ -2676,7 +2676,7 @@ body {
 :root {
   --green: #ff5a1f;
   --green-dark: #d73d08;
-  --green-deep: #062c23;
+  --green-deep: #07513d;
   --green-light: #fff0e8;
   --yellow: #d8ff4f;
   --yellow-light: #f2ffd1;
@@ -2697,7 +2697,7 @@ body {
 .site-header {
   position: relative;
   z-index: 20;
-  background: #041b16;
+  background: #063b2d;
   color: #fff;
   border-bottom: 1px solid rgba(255,255,255,.16);
 }
@@ -2730,8 +2730,8 @@ body {
   min-height: 650px;
   padding: 0 0 78px;
   background:
-    radial-gradient(circle at 78% 20%, rgba(67, 132, 102, 0.18), transparent 28%),
-    linear-gradient(120deg, #041b16 0%, #062c23 58%, #0b4033 100%);
+    radial-gradient(circle at 78% 20%, rgba(122, 199, 154, 0.2), transparent 28%),
+    linear-gradient(120deg, #063b2d 0%, #07513d 58%, #0a624a 100%);
   color: #fff;
   overflow: hidden;
 }
