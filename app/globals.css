@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap");
+/* Typography uses system fonts so the brand remains fast and self-contained. */
 
 :root {
   --green: #087f5b;
@@ -2668,6 +2668,168 @@ body {
   .instagram-link {
     text-align: center;
   }
+}
+
+/* =========================================================
+   2026 BRAND REFRESH — midnight diner / electric citrus
+========================================================= */
+:root {
+  --green: #ff5a1f;
+  --green-dark: #d73d08;
+  --green-deep: #16120f;
+  --green-light: #fff0e8;
+  --yellow: #d8ff4f;
+  --yellow-light: #f2ffd1;
+  --orange: #ff5a1f;
+  --orange-dark: #d73d08;
+  --cream: #f7f3ed;
+  --ink: #16120f;
+  --muted: #706964;
+  --border: #ded7ce;
+  --max-width: 1280px;
+}
+
+body {
+  background: var(--cream);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  background: var(--green-deep);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+
+.header-inner { min-height: 82px; }
+.brand { display: flex; align-items: center; }
+.brand img { width: 86px; height: auto; object-fit: contain; }
+.desktop-nav { gap: 30px; }
+.desktop-nav a { color: rgba(255,255,255,.78); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.desktop-nav a:hover { color: var(--yellow); }
+.header-button {
+  background: var(--yellow);
+  color: var(--green-deep);
+  border-radius: 4px;
+  padding: 13px 17px;
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.button { border-radius: 4px; min-height: 54px; letter-spacing: .08em; font-size: 12px; }
+.button-primary { background: var(--yellow); color: var(--green-deep); box-shadow: none; }
+.button-primary:hover { background: #edff97; box-shadow: none; }
+.button-outline { color: #fff; border-color: rgba(255,255,255,.65); }
+.button-outline:hover { color: var(--green-deep); background: #fff; }
+.button-yellow { background: var(--yellow); color: var(--green-deep); box-shadow: none; }
+
+.eyebrow, .eyebrow.orange { color: var(--orange); font-size: 11px; letter-spacing: .16em; }
+
+.hero {
+  min-height: 650px;
+  padding: 0 0 78px;
+  background: var(--green-deep);
+  color: #fff;
+  overflow: hidden;
+}
+.hero::before { content: "MONTREAL / EST. 2024"; position: absolute; top: 22px; right: 38px; color: rgba(255,255,255,.42); font-size: 10px; letter-spacing: .16em; }
+.hero::after { content: "PICKS"; position: absolute; z-index: 0; right: -18px; bottom: -94px; color: rgba(255,255,255,.035); font-size: clamp(220px, 33vw, 550px); font-weight: 900; line-height: .7; letter-spacing: -.1em; }
+.hero-inner { min-height: 570px; gap: 32px; }
+.hero-copy { padding: 72px 0 18px; }
+.hero-copy h1, .fusion-heading h2, .build-heading h2, .menu-heading h2, .combo-copy h2, .visit-brand h2, .full-menu-title h2, .build-options-header h2, .menu-hero h1, .menu-visit-grid h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+.hero-copy h1 { color: #fff; font-size: clamp(74px, 9vw, 138px); max-width: 660px; }
+.hero-copy h1 span { color: var(--yellow); }
+.hero-description { color: rgba(255,255,255,.72); font-size: 17px; max-width: 500px; }
+.hero-description strong { color: #fff; display: block; margin-top: 6px; }
+.hero-highlight { border-left: 2px solid var(--yellow); color: #fff; margin-top: 38px; padding-left: 14px; }
+.hero-highlight span { color: var(--yellow); }
+.hero-visual { min-height: 535px; }
+.hero-yellow-shape { width: 76%; height: 430px; right: 0; top: 50px; border-radius: 18px; background: var(--orange); transform: rotate(5deg); }
+.hero-image-wrap { width: 88%; height: 455px; right: 32px; top: 28px; border-radius: 5px; transform: rotate(-3deg); box-shadow: 18px 18px 0 var(--yellow); }
+.hero-image { filter: saturate(1.15) contrast(1.08); }
+.hero-sticker { left: auto; right: -8px; bottom: 22px; width: 132px; height: 132px; border-radius: 4px; background: var(--yellow); color: var(--green-deep); box-shadow: 8px 8px 0 var(--orange); transform: rotate(7deg); }
+.hero-doodle { right: 54px; bottom: 2px; color: #fff; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: .14em; }
+
+.fusion-section { background: var(--yellow); padding: 110px 0; }
+.fusion-section::before { width: 560px; height: 560px; right: -250px; top: -270px; background: var(--orange); opacity: .18; }
+.fusion-heading h2 { font-size: clamp(62px, 8vw, 118px); }
+.fusion-heading h2 span, .build-heading h2 span, .menu-heading h2 span, .visit-brand h2 span, .full-menu-title h2 span, .build-options-header h2 span, .menu-hero h1 span, .menu-visit-grid h2 span { color: var(--orange); }
+.fusion-intro { font-size: 18px; }
+.fusion-card { border-radius: 4px; background: #fff; box-shadow: 7px 7px 0 var(--green-deep); }
+.fusion-card:hover { transform: translateY(-7px); box-shadow: 12px 12px 0 var(--green-deep); }
+.fusion-image { height: 300px; }
+.fusion-card-content h3, .menu-card-content h3, .full-menu-content h3 { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; letter-spacing: .025em; font-weight: 400; }
+
+.build-section { padding: 120px 0; background: #fff; }
+.build-heading h2, .menu-heading h2, .full-menu-title h2, .build-options-header h2 { color: var(--green-deep); }
+.build-step { border-radius: 4px; border: 1px solid var(--green-deep); box-shadow: 6px 6px 0 var(--green-deep); }
+.build-step-dark { background: var(--green-deep); }
+.step-number { border-radius: 3px; background: var(--orange); }
+.orange-number { background: var(--yellow); color: var(--green-deep); }
+.free-badge { border-radius: 3px; background: var(--yellow); color: var(--green-deep); }
+.ingredient-pills span { border-radius: 3px; }
+.extras-details { border-radius: 4px; border: 1px solid var(--green-deep); }
+
+.combo-section { background: #fff; padding: 88px 0; }
+.combo-container { border-radius: 4px; background: var(--orange); }
+.combo-copy h2 span { color: var(--yellow); }
+.combo-copy > p:not(.eyebrow) { color: rgba(255,255,255,.82); }
+.combo-circle { background: var(--yellow); border-radius: 4px; transform: rotate(16deg); }
+
+.menu-section { padding: 120px 0; background: var(--cream); }
+.menu-card { border-radius: 4px; border: 1px solid var(--border); background: #fff; }
+.menu-card:hover { transform: translateY(-8px); box-shadow: 7px 7px 0 var(--orange); }
+.menu-card-image { border-radius: 0; }
+
+.delivery-section { background: var(--green-deep); }
+.delivery-section::before { background: var(--orange); opacity: .28; }
+.delivery-header h2 { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; font-weight: 400; letter-spacing: .02em; }
+.delivery-header h2 span { color: var(--yellow); }
+.delivery-platform { border-radius: 3px; }
+.delivery-platform:hover { color: var(--green-deep); }
+
+.full-menu-page { background: var(--cream); }
+.menu-hero { background: var(--green-deep); color: #fff; padding: 104px 0 112px; }
+.menu-hero::after { content: "PICKS"; position: absolute; right: 4%; bottom: 3%; color: rgba(255,255,255,.04); font-family: Impact, sans-serif; font-size: min(24vw, 300px); line-height: .5; }
+.menu-hero .section-container { position: relative; z-index: 2; }
+.menu-hero h1 { color: #fff; font-size: clamp(76px, 11vw, 160px); }
+.menu-hero > .section-container > p:not(.eyebrow) { color: rgba(255,255,255,.72); }
+.full-menu-section { background: #fff; }
+.full-menu-card { border-radius: 4px; box-shadow: 6px 6px 0 var(--green-deep); }
+.full-menu-card:hover { transform: translateY(-6px); box-shadow: 10px 10px 0 var(--orange); }
+.build-options-section { background: var(--yellow); }
+.option-box, .extras-menu-block { border-radius: 4px; }
+.option-box { border: 1px solid var(--green-deep); }
+.option-box-yellow { background: var(--orange); }
+.option-label { border-radius: 3px; }
+.menu-combo-banner { border-radius: 4px; background: var(--orange); }
+.menu-visit-section { background: var(--green-deep); }
+
+@media (max-width: 760px) {
+  .site-header { position: relative; }
+  .header-inner { min-height: 70px; width: min(100% - 28px, var(--max-width)); }
+  .brand img { width: 65px; }
+  .header-button { font-size: 10px; padding: 10px 11px; }
+  .hero { padding-bottom: 46px; }
+  .hero::before { right: 16px; top: 15px; font-size: 8px; }
+  .hero-copy { padding-top: 68px; }
+  .hero-copy h1 { font-size: clamp(62px, 20vw, 95px); }
+  .hero-description { font-size: 16px; }
+  .hero-visual { min-height: 390px; }
+  .hero-image-wrap { height: 320px; right: 15px; top: 25px; box-shadow: 10px 10px 0 var(--yellow); }
+  .hero-yellow-shape { height: 295px; top: 55px; }
+  .hero-sticker { width: 96px; height: 96px; font-size: 10px; }
+  .hero-sticker strong { font-size: 22px; }
+  .fusion-section, .build-section, .menu-section { padding: 74px 0; }
+  .fusion-card { box-shadow: 5px 5px 0 var(--green-deep); }
+  .build-step { box-shadow: 4px 4px 0 var(--green-deep); }
+  .menu-hero { padding: 72px 0 80px; }
+  .menu-hero h1 { font-size: clamp(62px, 19vw, 100px); }
 }
 /* =========================================================
    BUILD STEP NUMBER — FINAL FIX
