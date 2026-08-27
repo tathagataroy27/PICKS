@@ -37,18 +37,9 @@ const fusionItems = [
 ];
 
 const burgerChoices = [
-  {
-    title: "PICKS Burger",
-    image: "/Picks Chicken Burger.jpg",
-  },
-  {
-    title: "Double Burger",
-    image: "/Double Burger.png",
-  },
-  {
-    title: "Steak Burger",
-    image: "/steak burger.jpg",
-  },
+  { title: "PICKS Burger", image: "/Picks Chicken Burger.jpg" },
+  { title: "Double Burger", image: "/Double Burger.png" },
+  { title: "Steak Burger", image: "/steak burger.jpg" },
 ];
 
 const freeVeggies = [
@@ -188,100 +179,56 @@ export default function Home() {
   return (
     <main>
       {/* =====================================================
-          HEADER
+          HERO ARTWORK
+          Save the approved homepage artwork as:
+          public/hero-home.png
       ===================================================== */}
+      <section className="hero-home" aria-label="PICKS homepage hero">
+        <Image
+          src="/hero-home.png"
+          alt="PICKS — Your Burger, Your Way"
+          width={1536}
+          height={1024}
+          priority
+          className="hero-home-image"
+        />
 
-      <header className="site-header">
-        <div className="header-inner">
-          <Link href="/" className="brand" aria-label="PICKS home">
-            <Image
-              src="/logo.png"
-              alt="PICKS"
-              width={110}
-              height={70}
-              priority
-            />
-          </Link>
-
-          <nav className="desktop-nav">
-            <Link href="#korean-fusion">Korean Fusion</Link>
-            <Link href="#build">Build Your Burger</Link>
-            <Link href="/menu">Menu</Link>
-            <Link href="#visit">Visit Us</Link>
-          </nav>
-
-          <Link href="/menu" className="header-button">
-            ORDER NOW <span>→</span>
-          </Link>
-        </div>
-      </header>
-
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
-      <section className="hero">
-        <div className="hero-inner">
-          <div className="hero-copy">
-            <p className="eyebrow">FRESH. CUSTOM. DELICIOUS.</p>
-
-            <h1>
-              YOUR BURGER.
-              <span>YOUR WAY.</span>
-            </h1>
-
-            <p className="hero-description">
-              Start with a great burger. Pick your toppings, load it with
-              fresh veggies, choose your favourite sauce and make it yours.
-              <strong>
-                Fresh ingredients, bold flavour and made exactly the way you
-                like it.
-              </strong>
-            </p>
-
-            <div className="hero-buttons">
-              <Link href="#build" className="button button-primary">
-                BUILD YOUR BURGER <span>→</span>
-              </Link>
-
-              <Link href="/menu" className="button button-outline">
-                VIEW MENU
-              </Link>
-            </div>
-
-            <div className="hero-highlight">
-              <span>✦</span>
-
-              <p>
-                Fresh ingredients,
-                <strong>made your way.</strong>
-              </p>
-            </div>
-          </div>
-
-          <div className="hero-visual">
-            <div className="hero-yellow-shape" />
-
-            <div className="hero-image-wrap">
-              <Image
-                src="/Burger.JPG"
-                alt="Fresh PICKS burger"
-                fill
-                priority
-                sizes="(max-width: 800px) 90vw, 55vw"
-                className="hero-image"
-              />
-            </div>
-
-            <div className="hero-sticker">
-              <span>YOU</span>
-              <strong>PICK</strong>
-              <span>IT.</span>
-            </div>
-
-            <div className="hero-doodle">MAKE IT YOURS!</div>
-          </div>
-        </div>
+        {/* Clickable zones over the artwork */}
+        <Link
+          href="#korean-fusion"
+          className="hero-hotspot hero-hotspot-korean"
+          aria-label="Korean Fusion"
+        />
+        <Link
+          href="#build"
+          className="hero-hotspot hero-hotspot-build-nav"
+          aria-label="Build Your Burger"
+        />
+        <Link
+          href="/menu"
+          className="hero-hotspot hero-hotspot-menu-nav"
+          aria-label="Menu"
+        />
+        <Link
+          href="#visit"
+          className="hero-hotspot hero-hotspot-visit"
+          aria-label="Visit Us"
+        />
+        <Link
+          href="/menu"
+          className="hero-hotspot hero-hotspot-order"
+          aria-label="Order Now"
+        />
+        <Link
+          href="#build"
+          className="hero-hotspot hero-hotspot-build-button"
+          aria-label="Build your burger"
+        />
+        <Link
+          href="/menu"
+          className="hero-hotspot hero-hotspot-menu-button"
+          aria-label="View menu"
+        />
       </section>
 
       {/* =====================================================
@@ -293,7 +240,6 @@ export default function Home() {
           <div className="fusion-heading">
             <div>
               <p className="eyebrow orange">OUR SIGNATURE TWIST</p>
-
               <h2>
                 KOREAN
                 <span>FUSION.</span>
@@ -351,13 +297,9 @@ export default function Home() {
           </div>
 
           <div className="build-steps">
-            {/* STEP 1 */}
-
             <div className="build-step build-step-dark">
               <div className="step-number">01</div>
-
               <p className="step-label">START WITH</p>
-
               <h3>YOUR BURGER</h3>
 
               <div className="mini-burgers">
@@ -371,20 +313,15 @@ export default function Home() {
                         sizes="120px"
                       />
                     </div>
-
                     <strong>{burger.title}</strong>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* STEP 2 */}
-
             <div className="build-step">
               <div className="step-number orange-number">02</div>
-
               <p className="step-label">THEN ADD</p>
-
               <h3>FREE VEGGIES</h3>
 
               <p className="step-description">
@@ -400,13 +337,9 @@ export default function Home() {
               <span className="free-badge">INCLUDED</span>
             </div>
 
-            {/* STEP 3 */}
-
             <div className="build-step">
               <div className="step-number orange-number">03</div>
-
               <p className="step-label">FINISH WITH</p>
-
               <h3>YOUR SAUCE</h3>
 
               <p className="step-description">
@@ -423,15 +356,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* EXTRAS */}
-
           <details className="extras-details">
             <summary>
               <span>
                 <small>MAKE IT YOURS</small>
                 <strong>See all topping options</strong>
               </span>
-
               <b>+</b>
             </summary>
 
@@ -477,6 +407,9 @@ export default function Home() {
 
       {/* =====================================================
           COMBO
+          One finished collage artwork.
+          Save it as:
+          public/combo-home.png
       ===================================================== */}
 
       <section className="combo-section" id="combos">
@@ -504,39 +437,14 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="combo-visual">
-            <div className="combo-circle" />
-
-            <div className="combo-food burger-food">
-              <Image
-                src="/Picks Chicken Burger.jpg"
-                alt="PICKS burger"
-                fill
-                sizes="260px"
-              />
-            </div>
-
-            <div className="combo-food fries-food">
-              <Image
-                src="/Fries.png"
-                alt="PICKS fries"
-                fill
-                sizes="220px"
-              />
-            </div>
-
-            <div className="combo-food drink-food">
-              <Image
-                src="/Pop.png"
-                alt="Soft drink"
-                fill
-                sizes="120px"
-              />
-            </div>
-
-            <span className="combo-word combo-word-one">BURGER.</span>
-            <span className="combo-word combo-word-two">FRIES.</span>
-            <span className="combo-word combo-word-three">DRINK.</span>
+          <div className="combo-artwork">
+            <Image
+              src="/combo-home.png"
+              alt="PICKS burger, fries and drink combo"
+              fill
+              sizes="(max-width: 800px) 100vw, 58vw"
+              className="combo-artwork-image"
+            />
           </div>
         </div>
       </section>
@@ -632,8 +540,6 @@ export default function Home() {
           </div>
 
           <div className="visit-info">
-            {/* ADDRESS */}
-
             <div className="info-item">
               <span className="info-icon">📍</span>
 
@@ -647,8 +553,6 @@ export default function Home() {
                 </strong>
               </div>
             </div>
-
-            {/* HOURS */}
 
             <div className="info-item">
               <span className="info-icon">🕐</span>
@@ -667,8 +571,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* PICKUP */}
-
             <div className="info-item">
               <span className="info-icon">📞</span>
 
@@ -685,11 +587,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* DELIVERY */}
-
             <div className="delivery-block">
               <small>ORDER DELIVERY</small>
-
               <p>Find PICKS on your favourite delivery platform.</p>
 
               <div className="delivery-logo-grid">
@@ -712,20 +611,14 @@ export default function Home() {
                     </div>
 
                     <strong>{platform.name}</strong>
-
                     <span>ORDER NOW ↗</span>
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* BUTTONS */}
-
             <div className="visit-buttons">
-              <a
-                href="tel:+15149371937"
-                className="button button-yellow"
-              >
+              <a href="tel:+15149371937" className="button button-yellow">
                 CALL FOR PICK-UP <span>→</span>
               </a>
 
@@ -753,7 +646,6 @@ export default function Home() {
                     stroke="currentColor"
                     strokeWidth="2"
                   />
-
                   <circle
                     cx="12"
                     cy="12"
@@ -761,7 +653,6 @@ export default function Home() {
                     stroke="currentColor"
                     strokeWidth="2"
                   />
-
                   <circle
                     cx="17.5"
                     cy="6.5"
@@ -785,9 +676,7 @@ export default function Home() {
       <section className="full-menu-pdf-section" id="full-menu">
         <div className="section-container">
           <div className="full-menu-pdf-content">
-            <p className="eyebrow orange">
-              WANT TO SEE EVERYTHING?
-            </p>
+            <p className="eyebrow orange">WANT TO SEE EVERYTHING?</p>
 
             <h2>
               THE COMPLETE
